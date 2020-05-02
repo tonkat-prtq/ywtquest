@@ -71,7 +71,7 @@ Ruby on Rails 5.2.4
 
 LogテーブルなしのER図
 
-<https://docs.google.com/spreadsheets/d/155HWYiLlUswOmx9BND5r-Xk5Ar12cVB8uBuODmw-ABw/edit#gid=1493647565>
+<https://docs.google.com/spreadsheets/d/155HWYiLlUswOmx9BND5r-Xk5Ar12cVB8uBuODmw-ABw/edit?usp=sharing>
 
 ## 画面遷移図
 
