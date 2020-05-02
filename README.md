@@ -70,6 +70,7 @@ Ruby on Rails 5.2.4
 - 期間内のYWTを取得するとき、started_onとended_onの値を3つのテーブルで調べなくてはならないので処理が重そう
 
 LogテーブルなしのER図
+
 <https://docs.google.com/spreadsheets/d/155HWYiLlUswOmx9BND5r-Xk5Ar12cVB8uBuODmw-ABw/edit#gid=1493647565>
 
 ## 画面遷移図
