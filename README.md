@@ -46,6 +46,31 @@ Ruby on Rails 5.2.4
 
 <https://docs.google.com/spreadsheets/d/153c7VbDiDlCSFhpqOqxcaRRo_OPH2HX_St2hS0f4vyU/edit?usp=sharing>
 
+### Logテーブルの有無について
+
+今回はLogテーブルありを採用
+
+**自分が考えるメリット**
+
+- Logを呼び出せば指定期間内のYWTが取得出来るので、走るSQLが少なくて済みそう
+- そのユーザーのYWTを取得したい時に、Logテーブル有りのほうが簡単に済みそう
+
+**デメリット**
+
+- 期間や日付の情報も含めたYWTを取得する際はLogを経由しなくてはならない
+- フォームの実装やデータの扱いが面倒くさそう。苦戦しそう
+
+**Logテーブルなしのメリット**
+
+- 複雑なアソシエーションがないのでデータの作成や更新・表示を実装するためのコードが少なくて済みそう
+- YWTの3つをまとめたログを作成するという概念がなくなるので、その都度Yだけ記録、Wだけ記録のようなラフな使い方が可能になりそう
+
+**Logテーブルなしのデメリット**
+
+- 期間内のYWTを取得するとき、started_onとended_onの値を3つのテーブルで調べなくてはならないので処理が重そう
+
+[LogテーブルなしのER図](https://cacoo.com/diagrams/0xNVBwIwVyjSHs3U-C39E8.png)
+
 ## 画面遷移図
 
 <https://docs.google.com/spreadsheets/d/1ulOsu2guBDWNuytJj0uF_JhwTA1Jxa8RQbkVgi-vGgE/edit#gid=1527600181>
