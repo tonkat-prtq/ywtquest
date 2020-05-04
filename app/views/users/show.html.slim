@@ -4,4 +4,4 @@ p 名前:#{@user.name}
 p メールアドレス:#{@user.email}
 p レベル:#{@user.level}
 
-= link_to "編集"
+= link_to "編集", edit_user_registration_path(@user.id)
