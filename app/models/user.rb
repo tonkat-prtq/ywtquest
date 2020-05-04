@@ -7,6 +7,18 @@ class User < ApplicationRecord
     SecureRandom.uuid
   end
 
+  def update_without_current_password(params, *options)
+    params.delete(:current_password) # params.delete(:current_password)でcurrent_passwordのパラメータ削除
+    if params[:password].blank? && params[:password_confirmation].blank? # パスワード変更のためのパスワード入力フィールドとその確認フィールドの両者とも空の場合のみ、パスワードなしで更新できるように
+      params.delete(:password)
+      params.delete(:password_confirmation)
+    end
+
+    result = update_attributes(params, *options)
+    clean_up_passwords
+    result
+  end
+
   protected
   def self.find_for_google(auth)
     user = User.find_by(email: auth.info.email)
