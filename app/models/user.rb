@@ -2,7 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :trackable, :confirmable,
-         :omniauthable, omniauth_providers: %i(google_oauth2)
+         :omniauthable, omniauth_providers: %i(google)
   def self.create_unique_string # ランダムなuidを作成する
     SecureRandom.uuid
   end
