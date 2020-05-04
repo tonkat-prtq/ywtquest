@@ -1,2 +1,7 @@
-h1 Users#show
-p Find me in app/views/users/show.html.slim
+h1 マイページ
+
+p 名前:#{@user.name}
+p メールアドレス:#{@user.email}
+p レベル:#{@user.level}
+
+= link_to "編集"
