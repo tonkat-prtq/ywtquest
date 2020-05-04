@@ -1,0 +1,6 @@
+<p><%= notice %><%= alert %></p>
+<% if user_signed_in? %>
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to 'Googleでサインアップしてね', user_google_omniauth_authorize_path %>
+<% end %>
