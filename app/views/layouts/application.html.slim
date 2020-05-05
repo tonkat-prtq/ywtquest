@@ -8,15 +8,15 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
-    .container
-      .navbar
-        - if user_signed_in?
-          = link_to "ログアウト", destroy_user_session_path, method: :delete
-          = link_to "マイページ", user_path(current_user.id)
-        - else
-          = link_to "新規登録", new_user_registration_path
-          = link_to "ログイン", new_user_session_path
-
-        p.notice = notice
-        p.alert = alert
+    / 色の設定もここでしてる
+    div.navbar.navbar-expand-md.navbar-light.bg-light
+      div.navbar-brand.mr-auto = link_to "YWT Quest", root_path, class: 'text-decoration-none text-reset'
+      - if user_signed_in?
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'mr-3'
+        = link_to "マイページ", user_path(current_user.id)
+      - else
+        = link_to "新規登録", new_user_registration_path, class: 'mr-3'
+        = link_to "ログイン", new_user_session_path
+      p.notice = notice
+      p.alert = alert
     = yield
