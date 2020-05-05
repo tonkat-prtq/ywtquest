@@ -10,6 +10,8 @@
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
+    <%= f.input :name, required: false, placeholder: "お名前" %>
+    <%= f.input :profile, required: false, placeholder: "自己紹介"%>
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
@@ -20,7 +22,7 @@
     <%= f.input :current_password,
                 hint: "we need your current password to confirm your changes",
                 required: true,
-                input_html: { autocomplete: "current-password" } %>
+                input_html: { autocomplete: "current-password" } %>  
   </div>
 
   <div class="form-actions">
