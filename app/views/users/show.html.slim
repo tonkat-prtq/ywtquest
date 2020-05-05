@@ -3,5 +3,6 @@ h1 マイページ
 p 名前:#{@user.name}
 p メールアドレス:#{@user.email}
 p レベル:#{@user.level}
+p 自己紹介文:#{@user.profile}
 
 = link_to "編集", edit_user_registration_path(@user.id)
