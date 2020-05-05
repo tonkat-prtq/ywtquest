@@ -1,0 +1,2 @@
+class Knowledge < ApplicationRecord
+end
