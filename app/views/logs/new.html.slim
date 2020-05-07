@@ -9,8 +9,14 @@
   div.log-started-on.form-group
     = f.label :started_on
     = f.input :started_on, class: 'form-control'
-  div.log-ended-on.form-group.
+  div.log-ended-on.form-group
     = f.label :ended_on
     = f.input :ended_on, class: 'form-control'
+  
+  div.dones-title.form-group
+  = f.fields_for :dones do |d|
+    = d.label :title
+    = d.input :title, class: 'form-control'
+
 
   = f.submit(class: 'btn btn-primary')
