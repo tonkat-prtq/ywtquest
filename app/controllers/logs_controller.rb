@@ -12,6 +12,7 @@ class LogsController < ApplicationController
 
   def create
     @log = Log.create(log_params)
+    redirect_to logs_path
   end
 
   private

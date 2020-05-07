@@ -1,4 +1,20 @@
 - @logs.each do |log|
-  = log.started_on
-  |から
-  = log.ended_on
+  - if log.started_on == log.ended_on
+    p 日付: #{log.started_on}
+  - else
+    = log.started_on
+    | から
+    = log.ended_on
+
+  - log.dones.each do |d|
+    p やったこと: #{d.title}
+    p 詳細: #{d.comment}
+    p 費やした時間: #{d.worktime}
+
+  - log.knowledges.each do |k|
+    p わかったこと: #{k.title}
+    p 詳細: #{k.comment}
+  
+  - log.todos.each do |t|
+    p 次やること: #{t.title}
+    p 期限: #{t.when_to_do}
