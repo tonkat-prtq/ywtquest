@@ -20,7 +20,7 @@ class LogsController < ApplicationController
     params.require(:log).permit(:started_on, :ended_on, 
       dones_attributes: [:title, :comment, :worktime],
       knowledges_attributes: [:title, :comment],
-      todos_attributes: [:titile, :comment, :when_to_do]
+      todos_attributes: [:title, :comment, :when_to_do]
     )
   end
 end
