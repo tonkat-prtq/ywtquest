@@ -6,6 +6,7 @@ class LogsController < ApplicationController
   def new
     @log = Log.new
     dones = @log.dones.build
+    knowledges = @log.knowledges.build
   end
 
   def create
@@ -17,8 +18,8 @@ class LogsController < ApplicationController
   def log_params
     params.require(:log).permit(:started_on, :ended_on, 
       dones_attributes: [:title, :comment, :worktime],
-      knowledges: [:title, :comment],
-      todos: [:titile, :comment, :when_to_do]
+      knowledges_attributes: [:title, :comment],
+      todos_attributes: [:titile, :comment, :when_to_do]
     )
   end
 end

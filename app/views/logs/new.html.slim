@@ -18,5 +18,10 @@
     = d.label :title
     = d.input :title, class: 'form-control'
 
+  div.knowledges-title.form-group
+  = f.fields_for :knowledges do |k|
+    = k.label :title
+    = k.input :title, class: 'form-control'
+
 
   = f.submit(class: 'btn btn-primary')
