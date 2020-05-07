@@ -212,7 +212,11 @@ ja:
         ended_on: 終了日
       dones:
         title: やったこと
+        worktime: かけた時間
+        comment: 詳細
       knowledges:
         title: わかったこと
+        comment: 詳細
       todos:
         title: 次やること
+        when_to_do: 期限
