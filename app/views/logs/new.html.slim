@@ -1,0 +1,16 @@
+= simple_form_for(@log, local:true) do |f|
+  - if @log.errors.any?
+    div#error_explanation
+      h2 #{@log.errors.count}件のエラーがあります。
+      ul
+      - @log.errors.full_messages.each do |msg|
+        li #{msg}
+
+  div.log-started-on.form-group
+    = f.label :started_on
+    = f.input :started_on, class: 'form-control'
+  div.log-ended-on.form-group.
+    = f.label :ended_on
+    = f.input :ended_on, class: 'form-control'
+
+  = f.submit(class: 'btn btn-primary')
