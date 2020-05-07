@@ -7,6 +7,7 @@ class LogsController < ApplicationController
     @log = Log.new
     dones = @log.dones.build
     knowledges = @log.knowledges.build
+    todos = @log.todos.build
   end
 
   def create

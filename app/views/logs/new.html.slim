@@ -7,21 +7,28 @@
         li #{msg}
 
   div.log-started-on.form-group
-    = f.label :started_on
-    = f.input :started_on, class: 'form-control'
+    / = f.label :started_on
+    = f.date_field :started_on, value: (f.object.started_on || Time.now.strftime("%Y-%m-%d")), class: 'form-control'
   div.log-ended-on.form-group
-    = f.label :ended_on
-    = f.input :ended_on, class: 'form-control'
+    / = f.label :ended_on
+    = f.date_field :ended_on, hint: "開始日と終了日が同じの場合、その日のYWTとして記録できます", value: (f.object.ended_on || Time.now.strftime("%Y-%m-%d")), class: 'form-control'
+    / ヒント
+    small.form-text.text-muted 開始日と終了日が同じの場合、その日のYWTとして記録できます
+  
   
   div.dones-title.form-group
   = f.fields_for :dones do |d|
-    = d.label :title
-    = d.input :title, class: 'form-control'
+    / = d.label :title
+    = d.input :title, placeholder: "やったことを入力しよう！", class: 'form-control'
 
   div.knowledges-title.form-group
   = f.fields_for :knowledges do |k|
-    = k.label :title
-    = k.input :title, class: 'form-control'
+    / = k.label :title
+    = k.input :title, placeholder: "わかったことを入力しよう！", class: 'form-control'
 
+  div.todos-title.form-group
+  = f.fields_for :todos do |t|
+    / = t.label :title
+    = t.input :title, placeholder: "次やることを入力しよう！", class: 'form-control'
 
   = f.submit(class: 'btn btn-primary')

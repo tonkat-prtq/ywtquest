@@ -207,7 +207,12 @@ ja:
     pm: 午後
   simple_form:
     labels:
+      log:
+        started_on: 開始日
+        ended_on: 終了日
       dones:
         title: やったこと
       knowledges:
         title: わかったこと
+      todos:
+        title: 次やること
