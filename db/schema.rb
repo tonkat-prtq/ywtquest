@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_05_040520) do
+ActiveRecord::Schema.define(version: 2020_05_08_055849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,11 +39,12 @@ ActiveRecord::Schema.define(version: 2020_05_05_040520) do
     t.date "ended_on"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_logs_on_user_id"
   end
 
   create_table "todos", force: :cascade do |t|
     t.string "title", default: "", null: false
-    t.text "comment", default: "", null: false
     t.date "when_to_do"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -83,5 +84,6 @@ ActiveRecord::Schema.define(version: 2020_05_05_040520) do
 
   add_foreign_key "dones", "logs"
   add_foreign_key "knowledges", "logs"
+  add_foreign_key "logs", "users"
   add_foreign_key "todos", "logs"
 end

@@ -1,0 +1,17 @@
+h1 詳細画面
+
+- @log.dones.each do |d|
+  p やったこと: #{d.title}
+  p 詳細: #{d.comment}
+  p 費やした時間: #{d.worktime} 分
+
+- @log.knowledges.each do |k|
+  p わかったこと: #{k.title}
+  p 詳細: #{k.comment}
+
+- @log.todos.each do |t|
+  p 次やること: #{t.title}
+  p 期限: #{t.when_to_do}
+
+= link_to "Edit", edit_log_path(@log.id)
+= link_to "delete", log_path(@log.id), method: :delete
