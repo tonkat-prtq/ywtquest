@@ -5,7 +5,6 @@
     = log.started_on
     | から
     = log.ended_on
-  - binding.pry
   - log.dones.each do |d|
     p やったこと: #{d.title}
     p 詳細: #{d.comment}
