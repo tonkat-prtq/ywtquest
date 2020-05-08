@@ -5,10 +5,15 @@ class LogsController < ApplicationController
   end
 
   def new
-    @log = Log.new # current_user.logs.build(log_params)からこう変更して変なパラメーターが渡っちゃうエラー解決
-    @dones = @log.dones.build
-    @knowledges = @log.knowledges.build
-    @todos = @log.todos.build
+    if params[:back]
+      @log = current_user.logs.build(log_params)
+      render :new
+    else
+      @log = Log.new # current_user.logs.build(log_params)からこう変更して変なパラメーターが渡っちゃうエラー解決
+      @dones = @log.dones.build
+      @knowledges = @log.knowledges.build
+      @todos = @log.todos.build
+    end
   end
 
   def create
@@ -48,7 +53,6 @@ class LogsController < ApplicationController
   def confirm
     @log = current_user.logs.build(log_params)
     @log.id = params[:id]
-    binding.pry
   end
 
   def destroy
@@ -65,9 +69,9 @@ class LogsController < ApplicationController
 
   def log_params
     params.require(:log).permit(:id, :started_on, :ended_on, :user_id,
-      dones_attributes: [:title, :comment, :worktime, :logs_id],
-      knowledges_attributes: [:title, :comment, :logs_id],
-      todos_attributes: [:title, :when_to_do, :logs_id]
+      dones_attributes: [:id, :title, :comment, :worktime, :logs_id],
+      knowledges_attributes: [:id, :title, :comment, :logs_id],
+      todos_attributes: [:id, :title, :when_to_do, :logs_id]
     )
   end
 

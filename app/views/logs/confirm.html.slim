@@ -1,6 +1,6 @@
 h3 confirm
 
-= simple_form_for(@log, local:true, url: confirm_new_or_edit, method: confirm_form_method) do |f|
+= form_with(model:@log, local:true, url: confirm_new_or_edit, method: confirm_form_method) do |f|
   - if @log.errors.any?
     div#error_explanation
       h2 #{@log.errors.count}件のエラーがあります。
@@ -11,16 +11,16 @@ h3 confirm
   = f.hidden_field :started_on
   = f.hidden_field :ended_on
 
-  = f.fields_for :dones do |d|
+  = f.fields_for :dones, @log.dones do |d|
     = d.hidden_field :title
     = d.hidden_field :worktime
     = d.hidden_field :comment
 
-  = f.fields_for :knowledges do |k|
+  = f.fields_for :knowledges, @log.knowledges do |k|
     = k.hidden_field :title
     = k.hidden_field :comment
   
-  = f.fields_for :todos do |t|
+  = f.fields_for :todos, @log.todos do |t|
     = t.hidden_field :title
     = t.hidden_field :when_to_do
 
@@ -34,21 +34,21 @@ h3 confirm
   - else
     = f.submit 'Post'
 
-= simple_form_for(@log, local:true, url: new_log_path, method: :get) do |f|
+= form_with(model:@log, local:true, url: new_log_path, method: :get) do |f|
 
   = f.hidden_field :started_on
   = f.hidden_field :ended_on
 
-  = f.fields_for :dones do |d|
+  = f.fields_for :dones, @log.dones do |d|
     = d.hidden_field :title
     = d.hidden_field :worktime
     = d.hidden_field :comment
 
-  = f.fields_for :knowledges do |k|
+  = f.fields_for :knowledges, @log.knowledges do |k|
     = k.hidden_field :title
     = k.hidden_field :comment
   
-  = f.fields_for :todos do |t|
+  = f.fields_for :todos, @log.todos do |t|
     = t.hidden_field :title
     = t.hidden_field :when_to_do
 

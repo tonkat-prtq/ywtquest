@@ -10,6 +10,7 @@
     / また、simple_formで使えてたhintが使えなくなったので、代わりにsmall.form-text.text-muted(hintで出力されたhtml)として実装
   div.row
     div.log-started-on.form-group.col
+      = f.hidden_field :id
       = f.label :started_on
       = f.date_field :started_on, value: (f.object.started_on || Time.now.strftime("%Y-%m-%d")), class: 'form-control'
     div.log-ended-on.form-group.col
@@ -20,25 +21,25 @@
 
   / やったことのフォーム
   div.dones-form
-    = f.fields_for :dones do |d|
+    = f.fields_for :dones, log.dones do |d|
       div.row
         div.dones-title.form-group.col-md-6
           = d.input :title, placeholder: "やったことを入力しよう！", class: 'form-control'
         div.dones-worktime.form-group.col-md-2
-          = d.input :worktime, placeholder: "（分）", class: 'form-control', input_html: { value: ""}
+          = d.input :worktime, placeholder: "（分）", class: 'form-control'
       div.dones-comment.form-group
         = d.input :comment, placeholder: "やったことの詳細を入力しよう！", class: 'form-control'
 
 
   div.knowledges-form
-    = f.fields_for :knowledges do |k|
+    = f.fields_for :knowledges, log.knowledges do |k|
       div.knowledges-title.form-group
         = k.input :title, placeholder: "わかったことを入力しよう！", class: 'form-control'
       div.knowledges-comment.form-group
         = k.input :comment, placeholder: "わかったことの詳細を入力しよう！", class: 'form-control'
 
   div.todos-form
-    = f.fields_for :todos do |t|
+    = f.fields_for :todos, log.todos do |t|
       div.row
         div.todos-title.form-group.col-md-6
           = t.input :title, placeholder: "次やることを入力しよう！", class: 'form-control'

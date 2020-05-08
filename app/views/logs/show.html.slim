@@ -14,3 +14,4 @@ h1 詳細画面
   p 期限: #{t.when_to_do}
 
 = link_to "Edit", edit_log_path(@log.id)
+= link_to "delete", log_path(@log.id), method: :delete
