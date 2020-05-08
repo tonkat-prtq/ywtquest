@@ -16,6 +16,6 @@ module LogsHelper
   end
 
   def confirm_form_method
-    @log.id ? 'patch' : 'post' # @blog.idが存在する(=true)のとき、httpメソッドがpatch, 存在しないときはpost
+    @log.id ? :patch : :post # @blog.idが存在する(=true)のとき、httpメソッドがpatch, 存在しないときはpost
   end
 end
