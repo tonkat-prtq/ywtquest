@@ -1,7 +1,7 @@
 - @logs.each do |log|
-  - if log.started_on == log.ended_on
+  - if log.started_on == log.ended_on || log.ended_on.nil? # 開始日と終了日が同じか、ended_onに何も入力されていない場合は、一日の記録として表示する
     p 日付: #{log.started_on}
-  - else
+  - else # そうでない場合は、開始日から終了日といった、期間として表示する
     = log.started_on
     | から
     = log.ended_on
@@ -17,3 +17,4 @@
   - log.todos.each do |t|
     p 次やること: #{t.title}
     p 期限: #{t.when_to_do}
+  
