@@ -1,0 +1,7 @@
+.nested-fields
+  .field
+    div.knowledges-title.form-group
+      = f.input :title, placeholder: "わかったことを入力しよう！", class: 'form-control'
+    div.knowledges-comment.form-group
+      = f.input :comment, placeholder: "わかったことの詳細を入力しよう！", class: 'form-control'
+  = link_to_remove_association 'remove', f
