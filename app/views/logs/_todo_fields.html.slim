@@ -1,0 +1,10 @@
+.nested-fields
+  .field
+    div.row
+      div.todos-title.form-group.col-md-6
+        = f.input :title, placeholder: "次やることを入力しよう！", class: 'form-control'
+      div.todos-whentodo.form-group.col-md-2
+        = f.label :when_to_do
+        = f.date_field :when_to_do, placeholder: "期日を入力しよう（任意）", value: (f.object.when_to_do || Time.zone.tomorrow.strftime("%Y-%m-%d")), class: 'form-control'
+        small.form-text.text-muted デフォルトでは明日
+  = link_to_remove_association 'remove', f

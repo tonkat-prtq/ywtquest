@@ -15,14 +15,17 @@ h3 confirm
     = d.hidden_field :title
     = d.hidden_field :worktime
     = d.hidden_field :comment
+    = d.hidden_field :_destroy
 
   = f.fields_for :knowledges, @log.knowledges do |k|
     = k.hidden_field :title
     = k.hidden_field :comment
+    = k.hidden_field :_destroy
   
   = f.fields_for :todos, @log.todos do |t|
     = t.hidden_field :title
     = t.hidden_field :when_to_do
+    = t.hidden_field :_destroy
 
   - if @log.started_on == @log.ended_on
     p 日付: #{@log.started_on}
