@@ -34,6 +34,9 @@ class LogsController < ApplicationController
   end
 
   def edit
+    # @dones = @log.dones.build
+    # @knowledges = @log.knowledges.build
+    # @todos = @log.todos.build
     redirect_to logs_path, flash: {danger: "自分の記事以外の編集はできません"} unless current_user.id == @log.user.id
   end
 
@@ -77,6 +80,6 @@ class LogsController < ApplicationController
   end
 
   def set_log
-    @log = Log.find(params[:id])
+    @log = Log.includes(:dones, :knowledges, :todos).find(params[:id])
   end
 end
