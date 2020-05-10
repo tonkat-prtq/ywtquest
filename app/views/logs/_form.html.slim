@@ -22,7 +22,7 @@
   / やったことのフォーム
   div.dones-form
   #dones
-    = f.fields_for :dones, log.dones do |d|
+    = f.simple_fields_for :dones, log.dones do |d|
       == render 'done_fields', f: d
       .links
         = link_to_add_association 'add dones', f, :dones
@@ -38,7 +38,7 @@
 
   div.knowledges-form
   #knowledges
-    = f.fields_for :knowledges, log.knowledges do |k|
+    = f.simple_fields_for :knowledges, log.knowledges do |k|
       == render 'knowledge_fields', f: k
       .links
         = link_to_add_association 'add knowledges', f, :knowledges
@@ -49,7 +49,7 @@
     /     = k.input :comment, placeholder: "わかったことの詳細を入力しよう！", class: 'form-control'
 
   div.todos-form
-    = f.fields_for :todos, log.todos do |t|
+    = f.simple_fields_for :todos, log.todos do |t|
       == render 'todo_fields', f: t
       .links
         = link_to_add_association 'add todos', f, :todos

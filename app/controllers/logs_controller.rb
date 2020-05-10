@@ -35,13 +35,13 @@ class LogsController < ApplicationController
 
   def edit
     redirect_to logs_path, flash: {danger: "自分の記事以外の編集はできません"} unless current_user.id == @log.user.id
-    binding.pry
   end
 
   def update
     if params[:back]
       render :edit
     else
+      binding.pry
       if @log.update(log_params)
         redirect_to logs_path, flash: {success: "YWTを編集しました"}
       else
@@ -51,6 +51,7 @@ class LogsController < ApplicationController
   end
 
   def confirm
+    binding.pry
     @log = current_user.logs.build(log_params)
     @log.id = params[:id]
   end
