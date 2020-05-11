@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :logs, dependent: :destroy, inverse_of: :user
+  has_many :categories, dependent: :destroy
   accepts_nested_attributes_for :logs, reject_if: :all_blank, allow_destroy: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
