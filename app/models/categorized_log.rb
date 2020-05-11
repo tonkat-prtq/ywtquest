@@ -1,0 +1,2 @@
+class CategorizedLog < ApplicationRecord
+end
