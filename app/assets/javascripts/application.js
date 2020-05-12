@@ -14,6 +14,7 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery3
+//= bootstrap-tagsinput
 //= require popper
 //= require bootstrap-sprockets
 //= require cocoon

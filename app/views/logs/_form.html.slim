@@ -20,7 +20,7 @@
       small.form-text.text-muted 開始日と終了日が同じの場合、その日のYWTとして記録できます
   div.tag-form.form-group
     = f.label :tag_list
-    = f.text_field :tag_list, value: @log.tag_list.join(','), class: 'form-control'
+    = f.text_field :tag_list, value: @log.tag_list.join(','), class: 'form-control', data: {role: "tagsinput"}
   / やったことのフォーム
   div.dones-form
   #dones
