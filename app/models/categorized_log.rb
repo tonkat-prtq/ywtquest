@@ -1,2 +1,0 @@
-class CategorizedLog < ApplicationRecord
-end
