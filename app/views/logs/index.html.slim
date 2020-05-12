@@ -5,6 +5,7 @@
     = log.started_on
     | から
     = log.ended_on
+  == render 'logs/tag_list', tag_list: log.tag_list
   - log.dones.each do |d|
     p やったこと: #{d.title}
     p 詳細: #{d.comment}
