@@ -10,6 +10,8 @@ h3 confirm
 
   = f.hidden_field :started_on
   = f.hidden_field :ended_on
+  / hidden_fieldにtag_listを渡しただけじゃだめで、join(',')することで無事タグを一つ一つ渡せるようになった
+  = f.hidden_field :tag_list, value: @log.tag_list.join(',')
 
   = f.fields_for :dones, @log.dones do |d|
     = d.hidden_field :title
