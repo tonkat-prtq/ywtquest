@@ -72,7 +72,7 @@ class LogsController < ApplicationController
   private
 
   def log_params
-    params.require(:log).permit(:id, :started_on, :ended_on, :user_id,
+    params.require(:log).permit(:id, :started_on, :ended_on, :user_id, :tag_list,
       dones_attributes: [:id, :title, :comment, :worktime, :logs_id, :_destroy],
       knowledges_attributes: [:id, :title, :comment, :logs_id, :_destroy],
       todos_attributes: [:id, :title, :when_to_do, :logs_id, :_destroy]
