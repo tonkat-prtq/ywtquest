@@ -18,7 +18,9 @@
       = f.date_field :ended_on, hint: "開始日と終了日が同じの場合、その日のYWTとして記録できます", value: (f.object.ended_on || Time.now.strftime("%Y-%m-%d")), class: 'form-control'
       / ヒント
       small.form-text.text-muted 開始日と終了日が同じの場合、その日のYWTとして記録できます
-
+  div.tag-form.form-group
+    / = f.label :tag_list
+    = f.input :tag_list, value: @log.tag_list.join(','), class: 'form-control'
   / やったことのフォーム
   div.dones-form
   #dones
