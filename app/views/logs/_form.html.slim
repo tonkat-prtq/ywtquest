@@ -19,13 +19,18 @@
       / ヒント
       small.form-text.text-muted 開始日と終了日が同じの場合、その日のYWTとして記録できます
 
+  div.tag-form.form-group
+    = f.label :tag_list
+    br
+    = f.text_field :tag_list, value: @log.tag_list.join(','), class: 'form-control', data: {role: "tagsinput"}
+
   / やったことのフォーム
   div.dones-form
   #dones
     = f.simple_fields_for :dones, log.dones do |d|
       == render 'done_fields', f: d
-      .links
-        = link_to_add_association 'add dones', f, :dones
+    .links
+      = link_to_add_association 'add dones', f, :dones
 
       / div.row
       /   div.dones-title.form-group.col-md-6
@@ -40,8 +45,8 @@
   #knowledges
     = f.simple_fields_for :knowledges, log.knowledges do |k|
       == render 'knowledge_fields', f: k
-      .links
-        = link_to_add_association 'add knowledges', f, :knowledges
+    .links
+      = link_to_add_association 'add knowledges', f, :knowledges
 
     /   div.knowledges-title.form-group
     /     = k.input :title, placeholder: "わかったことを入力しよう！", class: 'form-control'
@@ -51,8 +56,8 @@
   div.todos-form
     = f.simple_fields_for :todos, log.todos do |t|
       == render 'todo_fields', f: t
-      .links
-        = link_to_add_association 'add todos', f, :todos
+    .links
+      = link_to_add_association 'add todos', f, :todos
 
       / div.row
       /   div.todos-title.form-group.col-md-6
@@ -62,4 +67,4 @@
       /     = t.date_field :when_to_do, placeholder: "期日を入力しよう（任意）", value: (t.object.when_to_do || Time.zone.tomorrow.strftime("%Y-%m-%d")), class: 'form-control'
       /     small.form-text.text-muted デフォルトでは明日
 
-  = f.submit(class: 'btn btn-primary')
+  = f.button :button, '送信する', type: 'button', onclick: 'submit();', class: 'btn btn-primary'

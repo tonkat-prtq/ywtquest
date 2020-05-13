@@ -1,7 +1,11 @@
 class LogsController < ApplicationController
   before_action :set_log, only: [:edit, :update, :show, :destroy]
   def index
-    @logs = Log.all
+    if params[:tag_name]
+      @logs = Log.tagged_with("#{params[:tag_name]}")
+    else
+      @logs = Log.all
+    end
   end
 
   def new
@@ -34,9 +38,6 @@ class LogsController < ApplicationController
   end
 
   def edit
-    # @dones = @log.dones.build
-    # @knowledges = @log.knowledges.build
-    # @todos = @log.todos.build
     redirect_to logs_path, flash: {danger: "自分の記事以外の編集はできません"} unless current_user.id == @log.user.id
   end
 
@@ -44,7 +45,6 @@ class LogsController < ApplicationController
     if params[:back]
       render :edit
     else
-      binding.pry
       if @log.update(log_params)
         redirect_to logs_path, flash: {success: "YWTを編集しました"}
       else
@@ -54,7 +54,6 @@ class LogsController < ApplicationController
   end
 
   def confirm
-    binding.pry
     @log = current_user.logs.build(log_params)
     @log.id = params[:id]
   end
@@ -72,7 +71,7 @@ class LogsController < ApplicationController
   private
 
   def log_params
-    params.require(:log).permit(:id, :started_on, :ended_on, :user_id,
+    params.require(:log).permit(:id, :started_on, :ended_on, :user_id, :tag_list,
       dones_attributes: [:id, :title, :comment, :worktime, :logs_id, :_destroy],
       knowledges_attributes: [:id, :title, :comment, :logs_id, :_destroy],
       todos_attributes: [:id, :title, :when_to_do, :logs_id, :_destroy]
