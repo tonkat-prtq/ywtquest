@@ -27,6 +27,8 @@ class LogsController < ApplicationController
     else
       if @log.save
         redirect_to logs_path, flash: {success: "YWTを作成しました"}
+        levelup # application_controllerのlevelupメソッドを呼び出せるか？
+        
         # PostMailer.post_mail(current_user.email).deliver
       else
         render :new
