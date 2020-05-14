@@ -3,8 +3,9 @@ $white: #FFFFFF;
 $grayishorange: #F1ECE4;
 $softorange: rgb(235, 211, 170);
 $solidorange: #EBA271;
-$darkblue: #273668;
+$spaceblue: #273668;
 $spacegreen: #276859;
+$spacered: #682736;
 
 $theme-colors: (
     "softcyan":      $softcyan,
@@ -12,30 +13,7 @@ $theme-colors: (
     "grayishorange": $grayishorange,
     "softorange":    $softorange,
     "solidorange":   $solidorange,
-    "darkblue":      $darkblue,
-    "spacegreen":    $spacegreen
+    "spaceblue":      $spaceblue,
+    "spacegreen":    $spacegreen,
+    "spacered":      $spacered
 );
-
-.dones{
-  .card-header{
-    background-color: $spacegreen;
-  }
-
-  span{
-    color: white;
-  }
-
-  span.worktime{
-    font-size: 0.8rem;
-  }
-}
-
-.knowledges{
-  .card-header{
-    background-color: $darkblue;
-  }
-
-  span.title{
-    color: white;
-  }
-}

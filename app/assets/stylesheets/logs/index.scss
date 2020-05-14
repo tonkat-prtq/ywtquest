@@ -1,0 +1,44 @@
+a.btn-spacegreen{
+  color: white;
+}
+
+.dones{
+  .card-header{
+    background-color: $spacegreen;
+  }
+
+  .card-footer{
+    background-color: white;
+    height: 1rem;
+    padding: 0.2rem;
+    border-color: white;
+  }
+
+  span{
+    color: white;
+  }
+
+  span.worktime{
+    font-size: 0.8rem;
+  }
+}
+
+.knowledges{
+  .card-header{
+    background-color: $spaceblue;
+  }
+
+  span.title{
+    color: white;
+  }
+}
+
+.todos{
+  .card-header{
+    background-color: $spacered;
+  }
+
+  span{
+    color: white;
+  }
+}

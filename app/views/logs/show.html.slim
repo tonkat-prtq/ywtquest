@@ -10,7 +10,7 @@ h1 詳細画面
 - @log.dones.each do |d|
   p やったこと: #{d.title}
   p 詳細: #{d.comment}
-  = unless d.worktime == 0 # もし時間が設定されていなかったら表示しない
+  - unless d.worktime == 0 # もし時間が設定されていなかったら表示しない
     p 費やした時間: #{d.worktime} 分 
 
 - @log.knowledges.each do |k|
