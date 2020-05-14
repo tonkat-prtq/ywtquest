@@ -21,25 +21,39 @@
           .row
             / ここからYのカラム
             .col-sm-4
-              / Yのカード宣言
-              .card
-                / Yの情報をdに格納
-                - log.dones.each do |d|
-                  / Yのカードheader
-                  .card-header(style="height: 3rem;")
-                    span #{d.title}
-                  / Yのカードbody
-                  .card-body
-                    p.card-text #{d.comment}
-            .col-sm-4
-              .card.card-body
-                h5.card-title カードのタイトル2
-                p.card-text カードのテキスト
-            .col-sm-4
-              .card.card-body
-                h5.card-title カードのタイトル3
-                p.card-text カードのテキスト
+              .accordion#accordion role="tablist" aria-multiselectable="true"
+                / Yのカード宣言
+                .card
+                  / Yの情報をdに格納
+                  - log.dones.each do |d|
+                    div*{class: "card-header", id: "done-heading-#{d.id}"} role="tab" 
+                      h5.mb-0
+                        a.text-body.d-block.p-3.m-n3 data-toggle="collapse" href="#done-heading-#{d.id}" role="button" aria-expanded="true" aria-controls="done-heading-#{d.id}"
+                          アイテム1
+                    div*{id: "done-heading-#{d.id}", class: "collapse show"} role="tabpanel" aria-labelledby="done-heading-#{d.id}" data-parent="#accordion"
+                      .card-body
+                        アイテム1のコンテンツ
 
+            / .col-sm-4
+            /   .card.card-body
+            /     h5.card-title カードのタイトル2
+            /     p.card-text カードのテキスト
+            / .col-sm-4
+            /   .card.card-body
+            /     h5.card-title カードのタイトル3
+            /     p.card-text カードのテキスト
+
+/                     div*{class: "card-header", id: "done-heading-#{d.id}"} role="tab" 
+                      h5.mb-0
+                        a.text-body.d-block.p-3.m-n3[data-toggle="collapse"
+                          href="done-content-#{d.id}"
+                          role="button" 
+                          aria-expanded="true" 
+                          aria-controls="done-content-#{d.id}"]
+                          span #{d.title}
+                    div*{id: "done-content-#{d.id}", class: "collapse show"} role="tabpanel" aria-labelledby="done-heading-#{d.id}" data-parent="#accordion"
+                      .card-body
+                        p.card-text #{d.comment}
 
 / - @logs.each do |log|
 /   - if log.started_on == log.ended_on || log.ended_on.nil? # 開始日と終了日が同じか、ended_onに何も入力されていない場合は、一日の記録として表示する
