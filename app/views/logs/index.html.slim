@@ -1,0 +1,26 @@
+- @logs.each do |log|
+  - if log.started_on == log.ended_on || log.ended_on.nil? # 開始日と終了日が同じか、ended_onに何も入力されていない場合は、一日の記録として表示する
+    p 日付: #{log.started_on}
+  - else # そうでない場合は、開始日から終了日といった、期間として表示する
+    = log.started_on
+    | から
+    = log.ended_on
+
+  == render 'logs/tag_list', tag_list: log.tag_list
+  
+  - log.dones.each do |d|
+    p やったこと: #{d.title}
+    p 詳細: #{d.comment}
+    - unless d.worktime == 0 # もし時間が設定されていなかったら表示しない
+      p 費やした時間: #{d.worktime} 分 
+
+  - log.knowledges.each do |k|
+    p わかったこと: #{k.title}
+    p 詳細: #{k.comment}
+  
+  - log.todos.each do |t|
+    p 次やること: #{t.title}
+    p 期限: #{t.when_to_do}
+  
+p #{@oldLevel}
+/ p #{current_user.level}

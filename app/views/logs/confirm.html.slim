@@ -1,0 +1,76 @@
+h3 confirm
+
+= form_with(model:@log, local:true, url: confirm_new_or_edit, method: confirm_form_method) do |f|
+  - if @log.errors.any?
+    div#error_explanation
+      h2 #{@log.errors.count}件のエラーがあります。
+      ul
+      - @log.errors.full_messages.each do |msg|
+        li #{msg}
+
+  = f.hidden_field :started_on
+  = f.hidden_field :ended_on
+  = f.hidden_field :user_id
+  / hidden_fieldにtag_listを渡しただけじゃだめで、join(',')することで無事タグを一つ一つ渡せるようになった
+  = f.hidden_field :tag_list, value: @log.tag_list.join(',')
+
+  = f.fields_for :dones, @log.dones do |d|
+    = d.hidden_field :title
+    = d.hidden_field :worktime
+    = d.hidden_field :comment
+    = d.hidden_field :_destroy
+
+  = f.fields_for :knowledges, @log.knowledges do |k|
+    = k.hidden_field :title
+    = k.hidden_field :comment
+    = k.hidden_field :_destroy
+  
+  = f.fields_for :todos, @log.todos do |t|
+    = t.hidden_field :title
+    = t.hidden_field :when_to_do
+    = t.hidden_field :_destroy
+
+  - if @log.started_on == @log.ended_on
+    p 日付: #{@log.started_on}
+  - else
+    p 期間: #{@log.started_on} 〜 #{@log.ended_on}
+  == render 'logs/tag_list', tag_list: @log.tag_list
+  - @log.dones.each do |d|
+    p やったこと: #{d.title}
+    p 詳細: #{d.comment}
+    p 費やした時間: #{d.worktime} 分
+
+  - @log.knowledges.each do |k|
+    p わかったこと: #{k.title}
+    p 詳細: #{k.comment}
+
+  - @log.todos.each do |t|
+    p 次やること: #{t.title}
+    p 期限: #{t.when_to_do}
+
+  - if @log.id # 更新時と新規投稿時でボタンの内容を変える
+    = f.submit 'Update'
+  - else
+    = f.submit 'Post'
+
+= form_with(model:@log, local:true, url: new_log_path, method: :get) do |f|
+
+  = f.hidden_field :started_on
+  = f.hidden_field :ended_on
+
+  = f.fields_for :dones, @log.dones do |d|
+    = d.hidden_field :title
+    = d.hidden_field :worktime
+    = d.hidden_field :comment
+
+  = f.fields_for :knowledges, @log.knowledges do |k|
+    = k.hidden_field :title
+    = k.hidden_field :comment
+  
+  = f.fields_for :todos, @log.todos do |t|
+    = t.hidden_field :title
+    = t.hidden_field :when_to_do
+
+  = f.submit 'Back', name: 'back', class: 'mt-1'
+
+
