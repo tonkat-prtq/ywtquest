@@ -17,6 +17,7 @@ html
       - else
         = link_to "新規登録", new_user_registration_path, class: 'mr-3'
         = link_to "ログイン", new_user_session_path
-      p.notice = notice
-      p.alert = alert
+    .notifications
+      - flash.each do |key, value|
+        = content_tag(:div, value, class: key)
     = yield

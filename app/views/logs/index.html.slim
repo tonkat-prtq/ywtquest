@@ -11,7 +11,7 @@
   - log.dones.each do |d|
     p やったこと: #{d.title}
     p 詳細: #{d.comment}
-    = unless d.worktime == 0 # もし時間が設定されていなかったら表示しない
+    - unless d.worktime == 0 # もし時間が設定されていなかったら表示しない
       p 費やした時間: #{d.worktime} 分 
 
   - log.knowledges.each do |k|
@@ -22,3 +22,5 @@
     p 次やること: #{t.title}
     p 期限: #{t.when_to_do}
   
+p #{@oldLevel}
+/ p #{current_user.level}

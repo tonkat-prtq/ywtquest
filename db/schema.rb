@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_12_092242) do
+ActiveRecord::Schema.define(version: 2020_05_13_081310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 2020_05_12_092242) do
     t.datetime "updated_at", null: false
     t.bigint "log_id"
     t.index ["log_id"], name: "index_knowledges_on_log_id"
+  end
+
+  create_table "level_settings", force: :cascade do |t|
+    t.integer "level", null: false
+    t.integer "threshold", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "logs", force: :cascade do |t|
