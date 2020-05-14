@@ -4,7 +4,7 @@
 
   .container-fluid
     / Logsカードの宣言
-    .card
+    .card.mt-2
       / Logsカードのheader, Tagとdateの表示
       / <div class="card-header" style="height: 35px; padding-top: 6px">
       .card-header(style="height: 3rem;")
@@ -23,12 +23,14 @@
             .col-sm-4
               / Yのカード宣言
               .card
-                / Yのカードheader
-                .card-header
-                  h5 タイトル
-                / Yのカードbody
-                .card-body
-                  p.card-text カードのテキスト
+                / Yの情報をdに格納
+                - log.dones.each do |d|
+                  / Yのカードheader
+                  .card-header(style="height: 3rem;")
+                    span #{d.title}
+                  / Yのカードbody
+                  .card-body
+                    p.card-text #{d.comment}
             .col-sm-4
               .card.card-body
                 h5.card-title カードのタイトル2
