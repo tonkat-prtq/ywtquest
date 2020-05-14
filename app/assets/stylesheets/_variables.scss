@@ -1,0 +1,41 @@
+$softcyan: #A7EBF4;
+$white: #FFFFFF;
+$grayishorange: #F1ECE4;
+$softorange: rgb(235, 211, 170);
+$solidorange: #EBA271;
+$darkblue: #273668;
+$spacegreen: #276859;
+
+$theme-colors: (
+    "softcyan":      $softcyan,
+    "white":         $white,
+    "grayishorange": $grayishorange,
+    "softorange":    $softorange,
+    "solidorange":   $solidorange,
+    "darkblue":      $darkblue,
+    "spacegreen":    $spacegreen
+);
+
+.dones{
+  .card-header{
+    background-color: $spacegreen;
+  }
+
+  span{
+    color: white;
+  }
+
+  span.worktime{
+    font-size: 0.8rem;
+  }
+}
+
+.knowledges{
+  .card-header{
+    background-color: $darkblue;
+  }
+
+  span.title{
+    color: white;
+  }
+}

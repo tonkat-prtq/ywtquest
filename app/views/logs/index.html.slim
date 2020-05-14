@@ -24,25 +24,34 @@
               - log.dones.each do |d|
                 / Yの情報が空なら表示しない
                 - unless d.title == "" && d.comment == "" && d.worktime == 0
-                  .accordion#accordion role="tablist" aria-multiselectable="true"
+                  #accordion role="tablist" aria-multiselectable="true"
                     / Yのカード宣言
-                    .card
+                    .card.dones.border-spacegreen
                       div*{class: "card-header", id: "done-heading-#{d.id}"} role="tab" 
-                        h5.mb-0
+                        h6.mb-0
                           a.collapsed.text-body.d-block.p-3.m-n3 data-toggle="collapse" href="#done-content-#{d.id}" role="button" aria-expanded="false" aria-controls="done-content-#{d.id}"
-                            span #{d.title}
+                            span.title #{d.title}
+                            span.worktime.float-right #{d.worktime}分
                       div*{id: "done-content-#{d.id}", class: "collapse"} role="tabpanel" aria-labelledby="done-heading-#{d.id}" data-parent="#accordion"
                         .card-body
                           span #{d.comment}
+            / ここからWのカラム
+            .col-sm-4
+              / Wの情報をdに格納
+              - log.knowledges.each do |k|
+                / Wの情報が空なら表示しない
+                - unless k.title == "" && k.comment == ""
+                  #accordion role="tablist" aria-multiselectable="true"
+                    / Wのカード宣言
+                    .card.knowledges.border-darkblue.mb-2
+                      div*{class: "card-header", id: "knowledge-heading-#{k.id}"} role="tab" 
+                        h6.mb-0
+                          a.collapsed.text-body.d-block.p-3.m-n3 data-toggle="collapse" href="#knowledge-content-#{k.id}" role="button" aria-expanded="false" aria-controls="knowledge-content-#{k.id}"
+                            span.title #{k.title}
+                      div*{id: "knowledge-content-#{k.id}", class: "collapse"} role="tabpanel" aria-labelledby="knowledge-heading-#{k.id}" data-parent="#accordion"
+                        .card-body
+                          span #{k.comment}
 
-            / .col-sm-4
-            /   .card.card-body
-            /     h5.card-title カードのタイトル2
-            /     p.card-text カードのテキスト
-            / .col-sm-4
-            /   .card.card-body
-            /     h5.card-title カードのタイトル3
-            /     p.card-text カードのテキスト
 
 /                     div*{class: "card-header", id: "done-heading-#{d.id}"} role="tab" 
                       h5.mb-0
