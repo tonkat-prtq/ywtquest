@@ -1,0 +1,55 @@
+.btn-spacegreen{
+  text-align: center;
+  color: white;
+}
+
+.btn-spaceblue{
+  text-align: center;
+  color: white;
+}
+
+.btn-spacered{
+  text-align: center;
+  color: white;
+}
+
+.dones{
+  .card-header{
+    background-color: $spacegreen;
+  }
+
+  .card-footer{
+    height: 1rem;
+    padding: 0.2rem;
+    border-color: white;
+    background-color: white !important;
+  }
+
+  span{
+    color: white;
+  }
+
+  span.worktime{
+    font-size: 0.8rem;
+  }
+}
+
+.knowledges{
+  .card-header{
+    background-color: $spaceblue;
+  }
+
+  span.title{
+    color: white;
+  }
+}
+
+.todos{
+  .card-header{
+    background-color: $spacered;
+  }
+
+  span{
+    color: white;
+  }
+}
