@@ -1,26 +1,38 @@
 .jumbotron.jumbotron-fluid
   .container
-    h1.display-4 #{@user.name}
-    p.lead #{@user.profile}
+    .name.d-inline #{@user.name}
+    .ml-5.float.d-inline.level(style="width:100px;") Level.#{@user.level} 
+    .progress
+      .progress-bar.progress-bar-striped.bg-info role="progressbar" style="width: #{@req_percent}%"
+        .reqexp あと #{@levelsetting.threshold - @user.exp_point} exp
+    - if current_user.id == @user.id
+      .d-inline.email Email:
+      .ml-2.d-inline.email-address #{@user.email}
+    p.lead.profile #{@user.profile}
+
+
 
 .container-fluid
   - @user.logs.each do |log|
-    .row.ywt-count
-      / 登録済みYの数
-      .col-sm-4
-        p #{log.dones.count}
-      / 登録済みWの数
-      .col-sm-4
-        p #{log.knowledges.count}
-      / 登録済みTの数
-      .col-sm-4
-        p #{log.todos.count}
+    .ywt-count
+      .btn-group.d-flex role="group"
+        btn.btn.btn-spacegreen.w-100 type="button" やったこと
+        btn.btn.btn-spaceblue.w-100 type="button" わかったこと
+        btn.btn.btn-spacered.w-100 type="button" 次やること
+      .row
+        .col-sm-4
+          p.counter #{log.dones.count}
+        .col-sm-4
+          p.counter #{log.knowledges.count}
+        .col-sm-4
+          p.counter #{log.todos.count}
+
+
 
 
 / p 名前:#{@user.name}
-p メールアドレス:#{@user.email}
-p レベル:#{@user.level}
-/ p 次のレベルまで:#{@levelsetting.threshold - @user.exp_point}
+
+
 / p 自己紹介文:#{@user.profile}
 
 = link_to "編集", edit_user_registration_path(@user.id)

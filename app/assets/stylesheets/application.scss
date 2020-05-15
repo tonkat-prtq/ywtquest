@@ -8,3 +8,30 @@
 
 @import "users/show.scss";
 
+// users#show
+
+.ywt-count {
+  text-align: center;
+}
+
+p.counter {
+  font-size: 5rem;
+  font-weight: lighter;
+}
+
+p.profile {
+  font-weight: lighter;
+  font-size: 1rem;
+}
+
+.jumbotron {
+  background-color: rgba(41, 37, 83, 0.13);
+  font-weight: lighter;
+  .name{
+    font-size: 4rem;
+    font-weight: lighter;
+  }
+  .level{
+    font-size: 1.5rem;
+  }
+}
