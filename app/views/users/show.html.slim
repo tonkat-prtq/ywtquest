@@ -1,16 +1,18 @@
 .jumbotron.jumbotron-fluid
   .container
     .name.d-inline #{@user.name}
-    .ml-5.float.d-inline.level(style="width:100px;") Level.#{@user.level} 
-    .progress
+    .ml-5.float.d-inline.level(style="width:100px;") Level.#{@user.level}
+    .float-right.mt-5 = link_to edit_user_registration_path(@user.id), class: 'text-reset', 'data-toggle': "tooltip", 'title': "編集"
+      = content_tag(:i, "", class: "far fa-edit fa-lg")
+    .progress.mb-4
       .progress-bar.progress-bar-striped.bg-info role="progressbar" style="width: #{@req_percent}%"
         .reqexp あと #{@levelsetting.threshold - @user.exp_point} exp
-    - if current_user.id == @user.id
-      .d-inline.email Email:
-      .ml-2.d-inline.email-address #{@user.email}
-    p.lead.profile #{@user.profile}
-
-
+    / - if current_user.id == @user.id
+    /   .email.mb-3
+    /     .d-inline Email:
+    /     .ml-2.d-inline.email-address #{@user.email}
+    .container-fluid.rounded.align-items-stretch.profile.mb-3
+      .lead.p-1.pb-4.profile-text #{@user.profile}
 
 .container-fluid
   - @user.logs.each do |log|
@@ -26,13 +28,3 @@
           p.counter #{log.knowledges.count}
         .col-sm-4
           p.counter #{log.todos.count}
-
-
-
-
-/ p 名前:#{@user.name}
-
-
-/ p 自己紹介文:#{@user.profile}
-
-= link_to "編集", edit_user_registration_path(@user.id)

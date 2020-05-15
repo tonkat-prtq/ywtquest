@@ -25,13 +25,29 @@ p.profile {
 }
 
 .jumbotron {
-  background-color: rgba(41, 37, 83, 0.13);
+  background-color: $softcyan;
   font-weight: lighter;
+  padding: 2rem 1rem 1rem 1rem; 
+  margin-bottom: 1rem;
   .name{
     font-size: 4rem;
     font-weight: lighter;
   }
   .level{
     font-size: 1.5rem;
+  }
+  .progress{
+    background-color: white;
+    .reqexp{
+      color: rgb(1, 21, 31);
+    }
+  }
+
+  .profile {
+    background-color: white;
+    .profile-text{
+      font-size: 1rem;
+      font-weight: lighter;
+    }
   }
 }
