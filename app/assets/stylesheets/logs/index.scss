@@ -1,4 +1,15 @@
-a.btn-spacegreen{
+.btn-spacegreen{
+  text-align: center;
+  color: white;
+}
+
+.btn-spaceblue{
+  text-align: center;
+  color: white;
+}
+
+.btn-spacered{
+  text-align: center;
   color: white;
 }
 
@@ -8,10 +19,10 @@ a.btn-spacegreen{
   }
 
   .card-footer{
-    background-color: white;
     height: 1rem;
     padding: 0.2rem;
     border-color: white;
+    background-color: white !important;
   }
 
   span{

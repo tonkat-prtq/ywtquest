@@ -1,9 +1,11 @@
-nav.nav.nav-pills.nav-justified
-  a.nav-item.nav-link.done-sign やったこと
-  a.nav-item.nav-link.knowledge-sign わかったこと
-  a.nav-item.nav-link.todo-sign 次やること
-
-
+.container-fluid
+  .row
+    .col-sm-4
+      .btn-spacegreen.ml-5 やったこと
+    .col-sm-4
+      .btn-spaceblue.ml-3.mr-3 わかったこと
+    .col-sm-4
+      .btn-spacered.mr-5 次やること
 
 - @logs.each do |log|
   .container-fluid
@@ -66,10 +68,10 @@ nav.nav.nav-pills.nav-justified
             .col-sm-4
               / Tの情報をtに格納
               - log.todos.each do |t|
-                / Wの情報が空なら表示しない
+                / Tの情報が空なら表示しない
                 - unless t.title == "" && t.when_to_do == ""
                   #accordion role="tablist" aria-multiselectable="true"
-                    / Wのカード宣言
+                    / Tのカード宣言
                     .card.todos.border-spacered.mb-2
                       div*{class: "card-header", id: "todo-heading-#{t.id}"} role="tab" 
                         h6.mb-0

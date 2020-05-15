@@ -6,6 +6,7 @@ $solidorange: #EBA271;
 $spaceblue: #273668;
 $spacegreen: #276859;
 $spacered: #682736;
+$spaceyellow: #685927;
 
 $theme-colors: (
     "softcyan":      $softcyan,
@@ -13,7 +14,29 @@ $theme-colors: (
     "grayishorange": $grayishorange,
     "softorange":    $softorange,
     "solidorange":   $solidorange,
-    "spaceblue":      $spaceblue,
+    "spaceblue":     $spaceblue,
     "spacegreen":    $spacegreen,
-    "spacered":      $spacered
+    "spacered":      $spacered,
+    "spaceyellow":   $spaceyellow
 );
+
+.btn-spacegreen{
+    text-align: center;
+    color: white;
+}
+
+.btn-spaceblue{
+    text-align: center;
+    color: white;
+}
+
+.btn-spacered{
+    text-align: center;
+    color: white;
+}
+
+.dones{
+    .card-footer{
+        background-color: white !important;
+    }
+}
