@@ -1,9 +1,26 @@
-h1 マイページ
+.jumbotron.jumbotron-fluid
+  .container
+    h1.display-4 #{@user.name}
+    p.lead #{@user.profile}
 
-p 名前:#{@user.name}
+.container-fluid
+  - @user.logs.each do |log|
+    .row.ywt-count
+      / 登録済みYの数
+      .col-sm-4
+        p #{log.dones.count}
+      / 登録済みWの数
+      .col-sm-4
+        p #{log.knowledges.count}
+      / 登録済みTの数
+      .col-sm-4
+        p #{log.todos.count}
+
+
+/ p 名前:#{@user.name}
 p メールアドレス:#{@user.email}
 p レベル:#{@user.level}
-p 次のレベルまで:#{@levelsetting.threshold - @user.exp_point}
-p 自己紹介文:#{@user.profile}
+/ p 次のレベルまで:#{@levelsetting.threshold - @user.exp_point}
+/ p 自己紹介文:#{@user.profile}
 
 = link_to "編集", edit_user_registration_path(@user.id)
