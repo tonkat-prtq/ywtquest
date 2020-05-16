@@ -13,14 +13,14 @@
     <%= f.input :name, required: false, placeholder: "お名前" %>
     <%= f.input :profile, required: false, placeholder: "自己紹介"%>
     <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
+                hint: "パスワードを変更する場合は、ここに新しいパスワードを入力してください",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
+                hint: "パスワードを変更する場合は、ここに現在のパスワードを入力してください",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>  
   </div>

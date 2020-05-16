@@ -6,7 +6,7 @@
       = content_tag(:i, "", class: "far fa-edit fa-lg")
     .progress.mb-4
       .progress-bar.progress-bar-striped.bg-info role="progressbar" style="width: #{@req_percent}%"
-        .reqexp あと #{@levelsetting.threshold - @user.exp_point} exp
+      span.ml-1.reqexp あと #{@levelsetting.threshold - @user.exp_point} exp
     / - if current_user.id == @user.id
     /   .email.mb-3
     /     .d-inline Email:
@@ -15,16 +15,19 @@
       .lead.p-1.pb-4.profile-text #{@user.profile}
 
 .container-fluid
+  .ywt-count
+    .btn-group.d-flex role="group"
+      btn.btn.btn-spacegreen.w-100 type="button" やったこと
+      btn.btn.btn-spaceblue.w-100 type="button" わかったこと
+      btn.btn.btn-spacered.w-100 type="button" 次やること
   - @user.logs.each do |log|
-    .ywt-count
-      .btn-group.d-flex role="group"
-        btn.btn.btn-spacegreen.w-100 type="button" やったこと
-        btn.btn.btn-spaceblue.w-100 type="button" わかったこと
-        btn.btn.btn-spacered.w-100 type="button" 次やること
-      .row
-        .col-sm-4
-          p.counter #{log.dones.count}
-        .col-sm-4
-          p.counter #{log.knowledges.count}
-        .col-sm-4
-          p.counter #{log.todos.count}
+    .row
+      .col-sm-4
+        p.counter #{log.dones.count}
+        / もしまだログもYもないとき、0と表示させる
+      .col-sm-4
+        p.counter #{log.knowledges.count}
+      .col-sm-4
+        p.counter #{log.todos.count}
+
+
