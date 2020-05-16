@@ -1,70 +1,76 @@
-= simple_form_for(log, local:true, url: choose_new_or_edit) do |f|
-  - if log.errors.any?
-    div#error_explanation
-      h2 #{log.errors.count}件のエラーがあります。
-      ul
-      - log.errors.full_messages.each do |msg|
-        li #{msg}
-    / logのフォーム。日付入力に使う
-    / f.inputだと思ったようなセレクトフォームにならなかったので、ここではdate_fieldと書き換えている
-    / また、simple_formで使えてたhintが使えなくなったので、代わりにsmall.form-text.text-muted(hintで出力されたhtml)として実装
-  div.row
-    div.log-started-on.form-group.col
-      = f.hidden_field :id
-      = f.label :started_on
-      = f.date_field :started_on, value: (f.object.started_on || Time.now.strftime("%Y-%m-%d")), class: 'form-control'
-    div.log-ended-on.form-group.col
-      = f.label :ended_on
-      = f.date_field :ended_on, hint: "開始日と終了日が同じの場合、その日のYWTとして記録できます", value: (f.object.ended_on || Time.now.strftime("%Y-%m-%d")), class: 'form-control'
-      / ヒント
-      small.form-text.text-muted 開始日と終了日が同じの場合、その日のYWTとして記録できます
+.container-fluid
+  = simple_form_for(log, local:true, url: choose_new_or_edit) do |f|
+    - if log.errors.any?
+      div#error_explanation
+        h2 #{log.errors.count}件のエラーがあります。
+        ul
+        - log.errors.full_messages.each do |msg|
+          li #{msg}
+      / logのフォーム。日付入力に使う
+      / f.inputだと思ったようなセレクトフォームにならなかったので、ここではdate_fieldと書き換えている
+      / また、simple_formで使えてたhintが使えなくなったので、代わりにsmall.form-text.text-muted(hintで出力されたhtml)として実装
+    div.row
+      div.log-started-on.form-group.col
+        = f.hidden_field :id
+        = f.label :started_on
+        = f.date_field :started_on, value: (f.object.started_on || Time.now.strftime("%Y-%m-%d")), class: 'form-control'
+      div.log-ended-on.form-group.col
+        = f.label :ended_on
+        = f.date_field :ended_on, hint: "開始日と終了日が同じの場合、その日のYWTとして記録できます", value: (f.object.ended_on || Time.now.strftime("%Y-%m-%d")), class: 'form-control'
+        / ヒント
+        small.form-text.text-muted 開始日と終了日が同じの場合、その日のYWTとして記録できます
 
-  div.tag-form.form-group
-    = f.label :tag_list
-    br
-    = f.text_field :tag_list, value: @log.tag_list.join(','), class: 'form-control', data: {role: "tagsinput"}
+    div.tag-form.form-group
+      = f.label :tag_list
+      br
+      = f.text_field :tag_list, value: @log.tag_list.join(','), class: 'form-control', data: {role: "tagsinput"}
 
-  / やったことのフォーム
-  div.dones-form
-  #dones
-    = f.simple_fields_for :dones, log.dones do |d|
-      == render 'done_fields', f: d
-    .links
-      = link_to_add_association 'add dones', f, :dones
+    div.form-row
+      / やったことのフォーム
+      div.dones-form.col-md-6
+        #dones
+          = f.simple_fields_for :dones, log.dones do |d|
+            == render 'done_fields', f: d
+          .links
+            = link_to_add_association f, :dones, partial: 'logs/done_fields', class: "btn btn-sm btn-spacegreen d-inline-block" do
+              - content_tag(:i, "", class: "fas fa-plus")
 
-      / div.row
-      /   div.dones-title.form-group.col-md-6
-      /     = d.input :title, placeholder: "やったことを入力しよう！", class: 'form-control'
-      /   div.dones-worktime.form-group.col-md-2
-      /     = d.input :worktime, placeholder: "（分）", class: 'form-control'
-      / div.dones-comment.form-group
-      /   = d.input :comment, placeholder: "やったことの詳細を入力しよう！", class: 'form-control'
+          / div.row
+          /   div.dones-title.form-group.col-md-6
+          /     = d.input :title, placeholder: "やったことを入力しよう！", class: 'form-control'
+          /   div.dones-worktime.form-group.col-md-2
+          /     = d.input :worktime, placeholder: "（分）", class: 'form-control'
+          / div.dones-comment.form-group
+          /   = d.input :comment, placeholder: "やったことの詳細を入力しよう！", class: 'form-control'
 
 
-  div.knowledges-form
-  #knowledges
-    = f.simple_fields_for :knowledges, log.knowledges do |k|
-      == render 'knowledge_fields', f: k
-    .links
-      = link_to_add_association 'add knowledges', f, :knowledges
+      div.knowledges-form.col-md-6
+        #knowledges
+          = f.simple_fields_for :knowledges, log.knowledges do |k|
+            == render 'knowledge_fields', f: k
+          .links
+            = link_to_add_association f, :knowledges, partial: 'logs/knowledge_fields', class: "btn btn-sm btn-spaceblue d-inline-block" do
+              - content_tag(:i, "", class: "fas fa-plus")
 
-    /   div.knowledges-title.form-group
-    /     = k.input :title, placeholder: "わかったことを入力しよう！", class: 'form-control'
-    /   div.knowledges-comment.form-group
-    /     = k.input :comment, placeholder: "わかったことの詳細を入力しよう！", class: 'form-control'
+        /   div.knowledges-title.form-group
+        /     = k.input :title, placeholder: "わかったことを入力しよう！", class: 'form-control'
+        /   div.knowledges-comment.form-group
+        /     = k.input :comment, placeholder: "わかったことの詳細を入力しよう！", class: 'form-control'
 
-  div.todos-form
-    = f.simple_fields_for :todos, log.todos do |t|
-      == render 'todo_fields', f: t
-    .links
-      = link_to_add_association 'add todos', f, :todos
+      div.todos-form.col-md-12
+        #todos
+        = f.simple_fields_for :todos, log.todos do |t|
+          == render 'todo_fields', f: t
+        .links
+          = link_to_add_association f, :todos, partial: 'logs/todo_fields', class: "btn btn-sm btn-spacered d-inline-block" do
+            - content_tag(:i, "", class: "fas fa-plus")
 
-      / div.row
-      /   div.todos-title.form-group.col-md-6
-      /     = t.input :title, placeholder: "次やることを入力しよう！", class: 'form-control'
-      /   div.todos-whentodo.form-group.col-md-2
-      /     = t.label :when_to_do
-      /     = t.date_field :when_to_do, placeholder: "期日を入力しよう（任意）", value: (t.object.when_to_do || Time.zone.tomorrow.strftime("%Y-%m-%d")), class: 'form-control'
-      /     small.form-text.text-muted デフォルトでは明日
+        / div.row
+        /   div.todos-title.form-group.col-md-6
+        /     = t.input :title, placeholder: "次やることを入力しよう！", class: 'form-control'
+        /   div.todos-whentodo.form-group.col-md-2
+        /     = t.label :when_to_do
+        /     = t.date_field :when_to_do, placeholder: "期日を入力しよう（任意）", value: (t.object.when_to_do || Time.zone.tomorrow.strftime("%Y-%m-%d")), class: 'form-control'
+        /     small.form-text.text-muted デフォルトでは明日
 
-  = f.button :button, '送信する', type: 'button', onclick: 'submit();', class: 'btn btn-primary'
+    = f.button :button, '送信する', type: 'button', onclick: 'submit();', class: 'btn btn-primary btn-block mt-5'
