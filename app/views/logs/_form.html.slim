@@ -25,7 +25,7 @@
       br
       = f.text_field :tag_list, value: @log.tag_list.join(','), class: 'form-control', data: {role: "tagsinput"}
 
-    div.form-row
+    div.form-row.mt-5
       / やったことのフォーム
       div.dones-form.col-md-6
         #dones
@@ -57,7 +57,7 @@
         /   div.knowledges-comment.form-group
         /     = k.input :comment, placeholder: "わかったことの詳細を入力しよう！", class: 'form-control'
 
-      div.todos-form.col-md-12
+      div.todos-form.col-md-12.mt-3
         #todos
         = f.simple_fields_for :todos, log.todos do |t|
           == render 'todo_fields', f: t
