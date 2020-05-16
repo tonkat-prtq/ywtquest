@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :trackable, :confirmable,
          :omniauthable, omniauth_providers: %i(google)
+  validates :name, length: {maximum: 30}
+  validates :profile, length: {maximum: 255}
+
   def self.create_unique_string # ランダムなuidを作成する
     SecureRandom.uuid
   end
@@ -26,6 +29,7 @@ class User < ApplicationRecord
     user = User.find_by(email: auth.info.email)
     unless user
       user = User.new(
+        name: auth.info.name,
         email: auth.info.email,
         provider: auth.provider,
         uid:      auth.uid,

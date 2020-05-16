@@ -1,25 +1,58 @@
-<%- if controller_name != 'sessions' %>
-  <%= link_to t(".sign_in"), new_session_path(resource_name) %><br />
+<%- if controller_name != 'sessions' && action_name != 'new' %> 
+  <%= link_to "ログインする", new_session_path(resource_name), class: "btn btn-block btn-success login-btn" %><br />
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to t(".sign_up"), new_registration_path(resource_name) %><br />
-<% end %>
-
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to t(".forgot_your_password"), new_password_path(resource_name) %><br />
-<% end %>
-
-<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to t('.didn_t_receive_confirmation_instructions'), new_confirmation_path(resource_name) %><br />
+  <%= link_to "新規登録画面へ", new_registration_path(resource_name), class: 'btn btn-block btn-info'%><br />
 <% end %>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to t('.didn_t_receive_unlock_instructions'), new_unlock_path(resource_name) %><br />
+  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to t('.sign_in_with_provider', provider: OmniAuth::Utils.camelize(provider)), omniauth_authorize_path(resource_name, provider) %><br />
+    <%= link_to omniauth_authorize_path(resource_name, provider), class: "btn btn-primary btn-block mb-2 google-signup-button" do %>
+      <%= content_tag(:i, "", class: "fab fa-google mr-3") + "Googleでログインする" %>
+    <% end %>
   <% end %>
 <% end %>
+
+<div class="not-buttons">
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <%= link_to "パスワードをお忘れの方はこちら", new_password_path(resource_name), class: "float-left d-inline-block" %>
+  <% end %>
+
+  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+    <%= link_to "確認メールが届いていませんか？", new_confirmation_path(resource_name), class: 'd-inline-block float-right' %>
+  <% end %>
+</div>
+
+<% if false %>
+  <%- if controller_name != 'sessions' %>
+    <%= link_to t(".sign_in"), new_session_path(resource_name) %><br />
+  <% end %>
+
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+    <%= link_to t(".sign_up"), new_registration_path(resource_name) %><br />
+  <% end %>
+
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+    <%= link_to t(".forgot_your_password"), new_password_path(resource_name) %><br />
+  <% end %>
+
+  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+    <%= link_to t('.didn_t_receive_confirmation_instructions'), new_confirmation_path(resource_name) %><br />
+  <% end %>
+
+  <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+    <%= link_to t('.didn_t_receive_unlock_instructions'), new_unlock_path(resource_name) %><br />
+  <% end %>
+
+  <%- if devise_mapping.omniauthable? %>
+    <%- resource_class.omniauth_providers.each do |provider| %>
+      <%= link_to t('.sign_in_with_provider', provider: OmniAuth::Utils.camelize(provider)), omniauth_authorize_path(resource_name, provider) %><br />
+    <% end %>
+  <% end %>
+<% end %>
+

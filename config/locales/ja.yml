@@ -220,3 +220,5 @@ ja:
       todos:
         title: 次やること
         when_to_do: 期限
+    required:
+      html: '<abbr class="nec">必須</abbr>'

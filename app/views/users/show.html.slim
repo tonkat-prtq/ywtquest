@@ -1,9 +1,33 @@
-h1 マイページ
+.jumbotron.jumbotron-fluid
+  .container
+    .name.d-inline #{@user.name}
+    .ml-5.float.d-inline.level(style="width:100px;") Level.#{@user.level}
+    .float-right.mt-5 = link_to edit_user_registration_path(@user.id), class: 'text-reset', 'data-toggle': "tooltip", 'title': "編集"
+      = content_tag(:i, "", class: "far fa-edit fa-lg")
+    .progress.mb-4
+      .progress-bar.progress-bar-striped.bg-info role="progressbar" style="width: #{@req_percent}%"
+      span.ml-1.reqexp あと #{@levelsetting.threshold - @user.exp_point} exp
+    / - if current_user.id == @user.id
+    /   .email.mb-3
+    /     .d-inline Email:
+    /     .ml-2.d-inline.email-address #{@user.email}
+    .container-fluid.rounded.align-items-stretch.profile.mb-3
+      .lead.p-1.pb-4.profile-text #{@user.profile}
 
-p 名前:#{@user.name}
-p メールアドレス:#{@user.email}
-p レベル:#{@user.level}
-p 次のレベルまで:#{@levelsetting.threshold - @user.exp_point}
-p 自己紹介文:#{@user.profile}
+.container-fluid
+  .ywt-count
+    .btn-group.d-flex role="group"
+      btn.btn.btn-spacegreen.w-100 type="button" やったこと
+      btn.btn.btn-spaceblue.w-100 type="button" わかったこと
+      btn.btn.btn-spacered.w-100 type="button" 次やること
+  - @user.logs.each do |log|
+    .row
+      .col-sm-4
+        p.counter #{log.dones.count}
+        / もしまだログもYもないとき、0と表示させる
+      .col-sm-4
+        p.counter #{log.knowledges.count}
+      .col-sm-4
+        p.counter #{log.todos.count}
 
-= link_to "編集", edit_user_registration_path(@user.id)
+
