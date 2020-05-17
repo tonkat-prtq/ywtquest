@@ -6,6 +6,6 @@ class UsersController < ApplicationController
     @levelsetting = LevelSetting.find_by(level: @user.level + 1)
     @lowerLevel = LevelSetting.find_by(level: @user.level)
     @reqexp = @levelsetting.threshold - @user.exp_point
-    @req_percent = ((@reqexp).fdiv(@levelsetting.threshold - @lowerLevel.threshold) * 100) - 100
+    @req_percent = @user.exp_point.fdiv(@levelsetting.threshold) * 100
   end
 end
