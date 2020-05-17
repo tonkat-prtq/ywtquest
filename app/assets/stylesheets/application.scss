@@ -8,6 +8,57 @@
 
 @import "users/show.scss";
 
+// logs#form
+
+.log-started-on, .log-ended-on{
+  .form-control{
+    border: 2px solid $charmycyan;
+  }
+}
+
+.bootstrap-tagsinput{
+  border: 2px solid $charmycyan;
+  width: 100%;
+  // inputのwidthを設定することで入力中の文字が切れなくなる
+  input{
+    width: 30%;
+  }
+  &:focus{
+    border-color: $charmycyan;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(52, 155, 214, 0.397);
+  }
+}
+
+.dones-form .form-control{
+  border: 2px solid $spacegreen;
+  // フォームが入力待機状態になったときのスタイル
+  // box-shadowで枠線の影の色を変えている
+  &:focus{
+    border-color: $spacegreen;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(12, 133, 32, 0.25);
+  }
+}
+
+.dones-comment, .knowledges-comment {
+  margin-bottom: 0;
+}
+
+.knowledges-form .form-control {
+  border: 2px solid $spaceblue;
+}
+
+.todos-form .form-control{
+  border: 2px solid $spacered;
+  &:focus{
+    border-color: $spacered;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(161, 12, 24, 0.342);
+  }
+}
+
+
 // users#show
 
 .ywt-count {
