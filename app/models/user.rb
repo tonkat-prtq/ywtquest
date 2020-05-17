@@ -39,6 +39,8 @@ class User < ApplicationRecord
         password: Devise.friendly_token[0, 20],
       )
     end
+    # skip_confirmationでGoogle認証のときはメール送信しない
+    user.skip_confirmation! 
     user.save
     user
   end
