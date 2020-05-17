@@ -58,6 +58,7 @@ class LogsController < ApplicationController
   def confirm
     @log = current_user.logs.build(log_params)
     @log.id = params[:id]
+    render :new if @log.invalid?
   end
 
   def destroy
