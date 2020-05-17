@@ -71,6 +71,24 @@ p.counter {
   text-align: center;
 }
 
+span.totaltime-label{
+  font-size: 1rem;
+  font-weight: lighter;
+  margin-bottom: 1rem;
+}
+
+span.totaltime {
+  font-size: 3rem;
+  font-weight: lighter;
+  text-align: center;
+}
+
+span.minutes {
+  font-size: 1rem;
+  font-weight: lighter;
+  color: grey;
+}
+
 p.profile {
   font-weight: lighter;
   font-size: 1rem;
@@ -96,7 +114,7 @@ p.profile {
   }
 
   .reqexp {
-    width: 10rem;
+    width: 6rem;
     margin-left: auto;
     margin-right: 0rem;
   }

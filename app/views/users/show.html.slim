@@ -24,11 +24,15 @@
     .row
       .col-sm-4
         p.counter #{@user.dones.count}
+        / 合計時間(userのtotaltimeカラムの代わり)
+        span.totaltime-label やったことの合計時間
+        br
+        span.totaltime #{@user.dones.sum(:worktime)}
+        span.minutes 分
       .col-sm-4
         p.counter #{@user.knowledges.count}
       .col-sm-4
         p.counter #{@user.todos.count}
 
-  = @user.totaltime
 
 
