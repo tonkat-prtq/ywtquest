@@ -19,6 +19,16 @@ ja:
       log:
         started_on: 開始日
         ended_on: 終了日
+      log/dones:
+        title: やったこと
+        comment: 詳細
+        worktime: かけた時間（分）
+      log/knowledges:
+        title: わかったこと
+        comment: 詳細
+      log/todos:
+        title: 次やること
+        when_to_do: 期限
       user:
         name: ユーザー名
         profile: プロフィール

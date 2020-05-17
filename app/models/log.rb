@@ -24,5 +24,5 @@ class Log < ApplicationRecord
     end
   end
 
-  
+
 end
