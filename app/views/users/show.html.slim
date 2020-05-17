@@ -6,7 +6,7 @@
       = content_tag(:i, "", class: "far fa-edit fa-lg")
     .progress.mb-4
       .progress-bar.progress-bar-striped.bg-info role="progressbar" style="width: #{@req_percent}%"
-      span.ml-1.reqexp あと #{@levelsetting.threshold - @user.exp_point} exp
+        .reqexp あと #{@levelsetting.threshold - @user.exp_point} exp
     / - if current_user.id == @user.id
     /   .email.mb-3
     /     .d-inline Email:

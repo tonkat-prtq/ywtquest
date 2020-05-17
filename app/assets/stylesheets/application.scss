@@ -77,7 +77,7 @@ p.profile {
 }
 
 .jumbotron {
-  background-color: $softcyan;
+  background-color: rgba(102, 194, 194, 0.411);
   font-weight: lighter;
   padding: 2rem 1rem 1rem 1rem; 
   margin-bottom: 1rem;
@@ -89,7 +89,7 @@ p.profile {
     font-size: 1.5rem;
   }
   .progress{
-    background-color: white;
+    // background-color: white;
     .reqexp{
       color: rgb(1, 21, 31);
     }
