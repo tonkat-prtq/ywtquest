@@ -255,7 +255,7 @@ ja:
         tag_list: タグ
       dones:
         title: やったこと
-        worktime: かけた時間
+        worktime: かけた時間（分）
         comment: 詳細
       knowledges:
         title: わかったこと
