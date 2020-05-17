@@ -7,6 +7,38 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    models:
+      log: YWTのログ
+      user: ユーザー
+      done: やったこと
+      knowledge: わかったこと
+      todo: 次やること
+      levelsetting: レベル設定
+      tags: タグ
+    attributes:
+      log:
+        started_on: 開始日
+        ended_on: 終了日
+      user:
+        name: ユーザー名
+        profile: プロフィール
+        email: メールアドレス
+        totaltime: 合計時間
+        level: レベル
+        exp_point: 経験値
+      done:
+        title: やったこと
+        comment: 詳細
+        worktime: かけた時間（分）
+      knowledge:
+        title: わかったこと
+        comment: 詳細
+      todo:
+        title: 次やること
+        when_to_do: 期限
+      levelsetting:
+        level: レベル
+        threshold: 必要経験値
   date:
     abbr_day_names:
     - 日
