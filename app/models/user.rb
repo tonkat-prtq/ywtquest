@@ -7,6 +7,9 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i(google)
   validates :name, length: {maximum: 30}
   validates :profile, length: {maximum: 255}
+  has_many :dones, through: :logs
+  has_many :knowledges, through: :logs
+  has_many :todos, through: :logs
 
   def self.create_unique_string # ランダムなuidを作成する
     SecureRandom.uuid
