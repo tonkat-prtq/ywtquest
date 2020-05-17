@@ -8,6 +8,16 @@
 
 @import "users/show.scss";
 
+.alert-notice {
+  background-color: $info;
+  color: white;
+}
+
+.alert-alert {
+  background-color: rgba(219, 14, 14, 0.65);
+  color: white;
+}s
+
 // logs#form
 
 .log-started-on, .log-ended-on{
