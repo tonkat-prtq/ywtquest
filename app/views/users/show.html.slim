@@ -4,9 +4,9 @@
     .ml-5.float.d-inline.level(style="width:100px;") Level.#{@user.level}
     .float-right.mt-5 = link_to edit_user_registration_path(@user.id), class: 'text-reset', 'data-toggle': "tooltip", 'title': "編集"
       = content_tag(:i, "", class: "far fa-edit fa-lg")
-    .progress.mb-4
+    .progress.mb-1
       .progress-bar.progress-bar-striped.bg-charmycyan.progress-bar-animated role="progressbar" style="width: #{@req_percent}%"
-        .reqexp あと #{@levelsetting.threshold - @user.exp_point} exp
+    .reqexp あと #{@levelsetting.threshold - @user.exp_point} exp
     / - if current_user.id == @user.id
     /   .email.mb-3
     /     .d-inline Email:
@@ -28,5 +28,7 @@
         p.counter #{@user.knowledges.count}
       .col-sm-4
         p.counter #{@user.todos.count}
+
+  = @user.totaltime
 
 
