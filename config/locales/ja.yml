@@ -242,6 +242,7 @@ ja:
       log:
         started_on: 開始日
         ended_on: 終了日
+        tag_list: タグ
       dones:
         title: やったこと
         worktime: かけた時間
