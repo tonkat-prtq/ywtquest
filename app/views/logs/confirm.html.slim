@@ -101,29 +101,30 @@
                             span.title #{t.title}
                             span.when-to-do.float-right 期限:#{t.when_to_do}
 
-    - if @log.id # 更新時と新規投稿時でボタンの内容を変える
-      = f.submit 'Update'
-    - else
-      = f.submit 'Post'
+        - if @log.id # 更新時と新規投稿時でボタンの内容を変える
+          = f.submit '更新', class: 'btn btn-primary'
+        - else
+          = f.submit '送信', class: 'btn btn-primary'
 
-  = form_with(model:@log, local:true, url: new_log_path, method: :get) do |f|
+        = form_with(model:@log, local:true, url: new_log_path, method: :get) do |f|
 
-    = f.hidden_field :started_on
-    = f.hidden_field :ended_on
+          = f.hidden_field :started_on
+          = f.hidden_field :ended_on
+          = f.hidden_field :tag_list, value: @log.tag_list.join(',')
 
-    = f.fields_for :dones, @log.dones do |d|
-      = d.hidden_field :title
-      = d.hidden_field :worktime
-      = d.hidden_field :comment
+          = f.fields_for :dones, @log.dones do |d|
+            = d.hidden_field :title
+            = d.hidden_field :worktime
+            = d.hidden_field :comment
 
-    = f.fields_for :knowledges, @log.knowledges do |k|
-      = k.hidden_field :title
-      = k.hidden_field :comment
-    
-    = f.fields_for :todos, @log.todos do |t|
-      = t.hidden_field :title
-      = t.hidden_field :when_to_do
+          = f.fields_for :knowledges, @log.knowledges do |k|
+            = k.hidden_field :title
+            = k.hidden_field :comment
+          
+          = f.fields_for :todos, @log.todos do |t|
+            = t.hidden_field :title
+            = t.hidden_field :when_to_do
 
-    = f.submit 'Back', name: 'back', class: 'mt-1'
+          = f.submit '戻る', name: 'back', class: 'btn btn-secondary ml-3'
 
 
