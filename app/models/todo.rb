@@ -1,4 +1,4 @@
 class Todo < ApplicationRecord
   belongs_to :log
-  validates :title, length: {maximum: 255}
+  validates :title, presence: true, length: {maximum: 255}
 end
