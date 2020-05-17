@@ -17,7 +17,7 @@
         == render 'logs/tag_list', tag_list: log.tag_list
         .float-right.ml-3 = link_to log_path(log.id), method: :delete, class: 'text-reset', 'data-toggle': "tooltip", 'title': "削除"
           = content_tag(:i, "", class: "fas fa-trash-alt fa-lg")
-        .float-right =link_to edit_log_path(log.id), class: 'text-reset', 'data-toggle': "tooltip", 'title': "編集"
+        .float-right =link_to edit_log_path(log.id), class: 'text-reset', 'data-toggle': "tooltip", 'title': "編集", "data-turbolinks": false 
           = content_tag(:i, "", class: "far fa-edit fa-lg")
 
       / Logsカードのbody, Y, W, Tを格納している
