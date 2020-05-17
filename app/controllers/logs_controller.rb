@@ -28,6 +28,8 @@ class LogsController < ApplicationController
     else
       if @log.save
         levelup
+        totaltime_calc
+        binding.pry
         redirect_to logs_path(old_level: @oldLevel), flash: {success: "YWTを作成しました"}
         # PostMailer.post_mail(current_user.email).deliver
       else
@@ -115,5 +117,13 @@ class LogsController < ApplicationController
       flash[:success] = "レベルが上がりました！"
     end
     return @oldLevel
+  end
+
+  def totaltime_calc # 合計時間を計算してtotaltimeに追加するメソッド
+    @user = @log.user
+    @user.dones.each do |d|
+      @user.totaltime += d.worktime
+    end
+    @user.update(totaltime: @user.totaltime)
   end
 end
