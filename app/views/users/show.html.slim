@@ -20,14 +20,13 @@
       btn.btn.btn-spacegreen.w-100 type="button" やったこと
       btn.btn.btn-spaceblue.w-100 type="button" わかったこと
       btn.btn.btn-spacered.w-100 type="button" 次やること
-  - @user.logs.each do |log|
+
     .row
       .col-sm-4
-        p.counter #{log.dones.count}
-        / もしまだログもYもないとき、0と表示させる
+        p.counter #{@user.dones.count}
       .col-sm-4
-        p.counter #{log.knowledges.count}
+        p.counter #{@user.knowledges.count}
       .col-sm-4
-        p.counter #{log.todos.count}
+        p.counter #{@user.todos.count}
 
 
