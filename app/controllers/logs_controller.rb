@@ -38,6 +38,7 @@ class LogsController < ApplicationController
   end
 
   def show
+    redirect_to logs_path
   end
 
   def edit
