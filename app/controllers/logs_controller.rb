@@ -1,6 +1,8 @@
 class LogsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_log, only: [:edit, :update, :show, :destroy]
+  skip_before_action :authenticate_user!, only: [:limited_share]
+
   PER = 5
 
   def index
@@ -34,6 +36,7 @@ class LogsController < ApplicationController
     else
       if @log.save
         levelup
+        @log.hash_string = Digest::SHA1.hexdigest(Time.now.to_s)
         redirect_to logs_path(old_level: @oldLevel), flash: {success: "YWTを作成しました"}
         # PostMailer.post_mail(current_user.email).deliver
       else
@@ -122,6 +125,10 @@ class LogsController < ApplicationController
       flash[:success] = "レベルが上がりました！"
     end
     return @oldLevel
+  end
+
+  def limited_share
+    @log = Log.where(hash_string: params[:h]).first
   end
 
 end
