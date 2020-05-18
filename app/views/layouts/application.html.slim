@@ -9,14 +9,22 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   body
     / 色の設定もここでしてる
-    div.navbar.navbar-expand-md.navbar-light.bg-light
-      div.navbar-brand.mr-auto = link_to "YWT Quest", root_path, class: 'text-decoration-none text-reset'
+    div.navbar.navbar-expand-md.navbar-dark
+      div.navbar-brand
+        = link_to image_tag("1_Primary_logo_on_transparent_392x63.png", class: "logo-image"), root_path
       - if user_signed_in?
-        = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'mr-3'
-        = link_to "マイページ", user_path(current_user.id)
+        div.d-block.btn.btn-mintgreen.mr-auto.navbar-btn.ywt-create-btn.ml-5.text-white
+          = link_to "YWT作成", new_log_path, class: 'text-decoration-none text-reset', "data-turbolinks": false 
+        div.d-block.btn.btn-dark.navbar-btn.mr-5
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'text-reset text-decoration-none d-block'
+        div.d-block.btn.btn-dark.navbar-btn.mr-5
+          = link_to "マイページ", user_path(current_user.id), class: 'text-reset text-decoration-none'
       - else
-        = link_to "新規登録", new_user_registration_path, class: 'mr-3'
-        = link_to "ログイン", new_user_session_path
+        .mr-auto
+        div.btn.d-block.btn-dark.navbar-btn.mr-5
+          = link_to "新規登録", new_user_registration_path, class: 'text-reset text-decoration-none'
+        div.btn.d-block.btn-dark.navbar-btn.mr-5
+          = link_to "ログイン", new_user_session_path, class: 'text-reset text-decoration-none'
     .container-fluid.notifications
       - flash.each do |key, value|
         div class=("alert alert-#{key}")
