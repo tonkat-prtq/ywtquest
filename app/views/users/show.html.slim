@@ -4,9 +4,9 @@
     .ml-5.float.d-inline.level(style="width:100px;") Level.#{@user.level}
     .float-right.mt-5 = link_to edit_user_registration_path(@user.id), class: 'text-reset', 'data-toggle': "tooltip", 'title': "編集"
       = content_tag(:i, "", class: "far fa-edit fa-lg")
-    .progress.mb-4
-      .progress-bar.progress-bar-striped.bg-info role="progressbar" style="width: #{@req_percent}%"
-      span.ml-1.reqexp あと #{@levelsetting.threshold - @user.exp_point} exp
+    .progress.mb-1
+      .progress-bar.progress-bar-striped.bg-charmycyan.progress-bar-animated role="progressbar" style="width: #{@req_percent}%"
+    .reqexp あと #{@levelsetting.threshold - @user.exp_point} exp
     / - if current_user.id == @user.id
     /   .email.mb-3
     /     .d-inline Email:
@@ -20,14 +20,19 @@
       btn.btn.btn-spacegreen.w-100 type="button" やったこと
       btn.btn.btn-spaceblue.w-100 type="button" わかったこと
       btn.btn.btn-spacered.w-100 type="button" 次やること
-  - @user.logs.each do |log|
+
     .row
       .col-sm-4
-        p.counter #{log.dones.count}
-        / もしまだログもYもないとき、0と表示させる
+        p.counter #{@user.dones.count}
+        / 合計時間(userのtotaltimeカラムの代わり)
+        span.totaltime-label やったことの合計時間
+        br
+        span.totaltime #{@user.dones.sum(:worktime)}
+        span.minutes 分
       .col-sm-4
-        p.counter #{log.knowledges.count}
+        p.counter #{@user.knowledges.count}
       .col-sm-4
-        p.counter #{log.todos.count}
+        p.counter #{@user.todos.count}
+
 
 

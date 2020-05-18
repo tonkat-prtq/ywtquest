@@ -8,6 +8,16 @@
 
 @import "users/show.scss";
 
+.alert-notice {
+  background-color: $info;
+  color: white;
+}
+
+.alert-alert {
+  background-color: rgba(219, 14, 14, 0.65);
+  color: white;
+}s
+
 // logs#form
 
 .log-started-on, .log-ended-on{
@@ -68,6 +78,25 @@
 p.counter {
   font-size: 5rem;
   font-weight: lighter;
+  text-align: center;
+}
+
+span.totaltime-label{
+  font-size: 1rem;
+  font-weight: lighter;
+  margin-bottom: 1rem;
+}
+
+span.totaltime {
+  font-size: 3rem;
+  font-weight: lighter;
+  text-align: center;
+}
+
+span.minutes {
+  font-size: 1rem;
+  font-weight: lighter;
+  color: grey;
 }
 
 p.profile {
@@ -76,7 +105,7 @@ p.profile {
 }
 
 .jumbotron {
-  background-color: $softcyan;
+  background-color: rgba(102, 194, 194, 0.411);
   font-weight: lighter;
   padding: 2rem 1rem 1rem 1rem; 
   margin-bottom: 1rem;
@@ -88,10 +117,16 @@ p.profile {
     font-size: 1.5rem;
   }
   .progress{
-    background-color: white;
+    // background-color: white;
     .reqexp{
       color: rgb(1, 21, 31);
     }
+  }
+
+  .reqexp {
+    width: 6rem;
+    margin-left: auto;
+    margin-right: 0rem;
   }
 
   .profile {

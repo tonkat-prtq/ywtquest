@@ -116,4 +116,5 @@ class LogsController < ApplicationController
     end
     return @oldLevel
   end
+
 end
