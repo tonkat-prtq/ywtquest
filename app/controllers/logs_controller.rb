@@ -1,4 +1,5 @@
 class LogsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_log, only: [:edit, :update, :show, :destroy]
   def index
     @oldLevel = params[:old_level]
