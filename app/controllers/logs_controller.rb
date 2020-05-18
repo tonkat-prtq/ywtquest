@@ -1,6 +1,8 @@
 class LogsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_log, only: [:edit, :update, :show, :destroy]
+  PER = 5
+
   def index
     @oldLevel = params[:old_level]
     if params[:tag_name]
@@ -8,6 +10,9 @@ class LogsController < ApplicationController
     else
       @logs = current_user.logs.all
     end
+
+    @logs = @logs.page(params[:page]).per(PER)
+
   end
 
   def new
