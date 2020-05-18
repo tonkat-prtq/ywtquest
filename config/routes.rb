@@ -15,6 +15,10 @@ Rails.application.routes.draw do
       patch :confirm
     end
   end
+  
+  authenticated :user do
+    root to: 'logs#index'
+  end
 
   root to: 'landings#home'
 
