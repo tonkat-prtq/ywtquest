@@ -1,11 +1,12 @@
 class LogsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_log, only: [:edit, :update, :show, :destroy]
   def index
     @oldLevel = params[:old_level]
     if params[:tag_name]
-      @logs = Log.tagged_with("#{params[:tag_name]}")
+      @logs = current_user.logs.tagged_with("#{params[:tag_name]}")
     else
-      @logs = Log.all
+      @logs = current_user.logs.all
     end
   end
 
@@ -37,6 +38,7 @@ class LogsController < ApplicationController
   end
 
   def show
+    redirect_to logs_path
   end
 
   def edit
