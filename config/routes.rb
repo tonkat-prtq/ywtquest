@@ -22,6 +22,11 @@ Rails.application.routes.draw do
 
   root to: 'landings#home'
 
+
+  # 例外 動的404
+  get '*not_found', to: 'application#routing_error'
+  post '*not_found', to: 'application#routing_error'
+
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
