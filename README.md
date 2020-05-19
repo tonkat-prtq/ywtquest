@@ -35,7 +35,6 @@ Ruby on Rails 5.2.4
   - [ ] YとWにはカテゴリを複数登録可
 - [ ] YWT編集
 - [ ] YWT削除
-- [ ] YWTのログ公開
 - [ ] レベルアップ機能
 
 ## カタログ設計
@@ -85,7 +84,6 @@ LogテーブルなしのER図
 
 - Devise
 - Simple_Form
-
-## その他使用予定技術
-
-- Vue.js
+- acts-as-taggable-on
+- cocoon
+- kaminari
