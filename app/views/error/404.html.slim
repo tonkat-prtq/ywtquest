@@ -1,0 +1,14 @@
+.container.error
+  p.error-message お探しのページは見つかりません
+  img.error-img = image_tag('404.png')
+
+sass:
+  .error 
+    padding-top: 2rem;
+  img
+    display: block
+    margin: 0 auto;
+  .error-message
+    font-size: 2rem;
+    font-weight: lighter;
+    text-align: center;

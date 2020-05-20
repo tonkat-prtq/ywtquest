@@ -1,0 +1,14 @@
+.container.error
+  p.error-message Internal Server Error
+  img.error-img = image_tag('500.png')
+
+sass:
+  .error 
+    padding-top: 2rem;
+  img
+    display: block
+    margin: 0 auto;
+  .error-message
+    font-size: 2rem;
+    font-weight: lighter;
+    text-align: center;
