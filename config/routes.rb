@@ -15,6 +15,10 @@ Rails.application.routes.draw do
       patch :confirm
     end
   end
+
+  namespace :logs do
+    resource :dones, only: [:show]
+  end
   
   authenticated :user do
     root to: 'logs#index'
