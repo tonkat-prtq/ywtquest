@@ -1,8 +1,6 @@
 .container-fluid
-  .btn-group.d-flex role="group"
-    btn.btn.btn-spacegreen.w-100 type="button" やったこと
-    btn.btn.btn-spaceblue.w-100 type="button" わかったこと
-    btn.btn.btn-spacered.w-100 type="button" 次やること
+  == render 'logs/top_buttons'
+
 
 - @logs.each do |log|
   .container-fluid
