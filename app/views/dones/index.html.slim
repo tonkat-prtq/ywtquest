@@ -1,0 +1,46 @@
+.container-fluid
+  .btn-group.d-flex role="group"
+    btn.btn.btn-spacegreen.w-100 type="button" = link_to "やったこと", dones_path, class: 'text-decoration-none text-reset'
+    btn.btn.btn-spaceblue.w-100 type="button" = link_to "わかったこと", knowledges_path, class: 'text-decoration-none text-reset'
+    btn.btn.btn-spacered.w-100 type="button" 次やること
+
+- @logs.each do |log|
+  .container-fluid
+    / Logsカードの宣言
+    .card.mt-2
+      / Logsカードのheader, Tagとdateの表示
+      .card-header(style="height: 3rem;")
+        - if log.started_on == log.ended_on || log.ended_on.nil? # 開始日と終了日が同じか、ended_onに何も入力されていない場合は、一日の記録として表示する
+          span.mr-3 #{log.started_on}
+        - else # そうでない場合は、開始日から終了日といった、期間として表示する
+          span.mr-3 #{log.started_on} から #{log.ended_on}
+        == render 'logs/tag_list', tag_list: log.tag_list
+        .float-right.ml-3 = link_to log_path(log.id), method: :delete, class: 'text-reset', 'data-toggle': "tooltip", 'title': "削除"
+          = content_tag(:i, "", class: "fas fa-trash-alt fa-lg")
+        .float-right =link_to edit_log_path(log.id), class: 'text-reset', 'data-toggle': "tooltip", 'title': "編集", "data-turbolinks": false 
+          = content_tag(:i, "", class: "far fa-edit fa-lg")
+
+      / Logsカードのbody, Yを格納している
+      .card-body
+        .container-fluid
+          .row
+            .col-sm-12
+              - log.dones.each do |d|
+                - unless d.title == "" && d.comment == "" && d.worktime == 0
+                  #accordion role="tablist" aria-multiselectable="true"
+                    / Yのカード宣言
+                    .card.dones.border-spacegreen.mb-2
+                      div*{class: "card-header", id: "done-heading-#{d.id}"} role="tab" 
+                        h6.mb-0
+                          a.collapsed.text-body.d-block.p-3.m-n3 data-toggle="collapse" href="#done-content-#{d.id}" role="button" aria-expanded="false" aria-controls="done-content-#{d.id}"
+                            span.title #{d.title}
+                      div*{id: "done-content-#{d.id}", class: "collapse"} role="tabpanel" aria-labelledby="done-heading-#{d.id}"
+                        - unless d.comment == ""
+                          .card-body
+                            = d.comment
+                        - unless d.worktime == 0
+                          .card-footer
+                            .worktime.float-right #{d.worktime}分 
+
+/ .container-fluid.mt-3 = paginate @logs
+
