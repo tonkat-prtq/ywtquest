@@ -1,7 +1,6 @@
 .container-fluid
   == render 'logs/top_buttons'
 
-
 - @logs.each do |log|
   .container-fluid
     / Logsカードの宣言
@@ -18,27 +17,24 @@
         .float-right =link_to edit_log_path(log.id), class: 'text-reset', 'data-toggle': "tooltip", 'title': "編集", "data-turbolinks": false 
           = content_tag(:i, "", class: "far fa-edit fa-lg")
 
-      / Logsカードのbody, Yを格納している
+      / Logsカードのbody, Y, W, Tを格納している
       .card-body
         .container-fluid
+          / Y, W, Tを4カラムずつに分けるrow設定
           .row
+            / ここからTのカラム
             .col-sm-12
-              - log.dones.each do |d|
-                - unless d.title == "" && d.comment == "" && d.worktime == 0
+              / Tの情報をtに格納
+              - log.todos.each do |t|
+                / Tの情報が空なら表示しない
+                - unless t.title == "" && t.when_to_do == ""
                   #accordion role="tablist" aria-multiselectable="true"
-                    / Yのカード宣言
-                    .card.dones.border-spacegreen.mb-2
-                      div*{class: "card-header", id: "done-heading-#{d.id}"} role="tab" 
+                    / Tのカード宣言
+                    .card.todos.border-spacered.mb-2
+                      div*{class: "card-header", id: "todo-heading-#{t.id}"} role="tab" 
                         h6.mb-0
-                          a.collapsed.text-body.d-block.p-3.m-n3 data-toggle="collapse" href="#done-content-#{d.id}" role="button" aria-expanded="true" aria-controls="done-content-#{d.id}"
-                            span.title #{d.title}
-                      div*{id: "done-content-#{d.id}", class: "collapse show"} role="tabpanel" aria-labelledby="done-heading-#{d.id}"
-                        - unless d.comment == ""
-                          .card-body
-                            = d.comment
-                        - unless d.worktime == 0
-                          .card-footer
-                            .worktime.float-right #{d.worktime}分 
+                          a.collapse.text-body.d-block.p-3.m-n3 data-toggle="collapse" href="#todo-content-#{t.id}" role="button" aria-expanded="true" aria-controls="todo-content-#{t.id}"
+                            span.title #{t.title}
+                            span.when-to-do.float-right.align-text-bottom 期限:#{t.when_to_do}
 
 / .container-fluid.mt-3 = paginate @logs
-

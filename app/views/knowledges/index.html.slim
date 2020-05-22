@@ -1,8 +1,5 @@
 .container-fluid
-  .btn-group.d-flex role="group"
-    btn.btn.btn-spacegreen.w-100 type="button" = link_to "やったこと", dones_path, class: 'text-decoration-none text-reset'
-    btn.btn.btn-spaceblue.w-100 type="button" わかったこと
-    btn.btn.btn-spacered.w-100 type="button" 次やること
+  == render 'logs/top_buttons'
 
 - @logs.each do |log|
   .container-fluid
@@ -43,4 +40,4 @@
                           span #{k.comment}
 
 
-/ .container-fluid.mt-3 = paginate @logs
+.container-fluid.mt-3 = paginate @logs
