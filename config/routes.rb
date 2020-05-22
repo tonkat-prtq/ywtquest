@@ -16,9 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :logs do
-    resource :dones, only: [:show]
-  end
+  resources :dones, only: %i(index)
   
   authenticated :user do
     root to: 'logs#index'
