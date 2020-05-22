@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   end
 
   resources :dones, only: %i(index)
-  
+  resources :knowledges, only: %i(index)
+
   authenticated :user do
     root to: 'logs#index'
   end
