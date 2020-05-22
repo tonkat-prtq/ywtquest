@@ -1,7 +1,7 @@
-class KnowledgesController < ApplicationController
+class TodosController < ApplicationController
   before_action :authenticate_user!
   PER = 10
-  
+
   def index
     @logs = current_user.logs
 
