@@ -33,21 +33,23 @@ javascript:
     trailWidth: 1,
     svgStyle: {width: '100%', height: '100%'}
   });
-
-  if (@oldLevel === current_user.level) {
   
+  var oldLevel = #{@oldLevel}
+  var currentLevel = #{current_user.level}
+
+  console.log(oldLevel)
+  console.log(currentLevel)
+
+  if (oldLevel === currentLevel) {
+    console.log("true")
+    $('#exampleModal').modal // テストのため記述
   } else {
+    console.log("false")
     $('#exampleModal').modal
     $('#exampleModal').on('shown.bs.modal', function(){
       bar.animate(1.0); 
     });
-  }
-
-  // $('#exampleModal').on('shown.bs.modal', function(){
-  //   bar.animate(1.0); 
-  // });
-
-- binding.pry
+  };
 
 - @logs.each do |log|
   .container-fluid
