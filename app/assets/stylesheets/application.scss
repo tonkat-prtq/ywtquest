@@ -8,6 +8,80 @@
 
 @import "users/show.scss";
 
+// Landing
+
+.top-content {
+  background-color: $charmycyan;
+  width: 100%;
+  height: 20%;
+  color: white;
+  .main-text {
+    font-size: 4.5rem;
+    padding: 5rem 5rem 1rem 5rem;
+  }
+}
+
+.content-1 {
+  margin-top: 3rem;
+  height: 50%;
+  text-align: center;
+  .index-image img{
+    max-width: 60%;
+    margin: 0 auto;
+  }
+  p.main-text {
+    font-size: 1.5rem;
+  }
+}
+
+.content-2 {
+  margin-top: 1rem;
+  padding-top: 4rem;
+  height: auto;
+  // text-align: center;
+  background-color: $charmycyan;
+  color: white;
+  text-align: center;
+  img {
+    max-width: 60%;
+  }
+
+  p {
+    font-size: 1.3rem;
+  }
+}
+
+.content-3 {
+  margin-top: 3rem;
+  height: 50%;
+  text-align: center;
+  .mypage-image img{
+    max-width: 60%;
+    margin: 0 auto;
+  }
+  p.main-text {
+    font-size: 1.5rem;
+  }
+}
+
+
+.content-4 {
+  margin-top: 1rem;
+  padding-top: 3rem;
+  height: auto;
+  // text-align: center;
+  background-color: $charmycyan;
+  color: white;
+  text-align: center;
+  img {
+    max-width: 60%;
+  }
+
+  p {
+    font-size: 1.3rem;
+  }
+}
+
 .alert-notice {
   background-color: $info;
   color: white;
