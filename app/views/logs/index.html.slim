@@ -2,8 +2,8 @@
   == render 'logs/top_buttons'
 
 /! 切り替えボタンの設定
-button.btn.btn-primary.btn-modal data-target="#exampleModal" data-toggle="modal" type="button" 
-  | ココを押すと表示
+/ button.btn.btn-primary.btn-modal data-target="#exampleModal" data-toggle="modal" type="button" 
+/   | ココを押すと表示
 /! モーダルの設定
 #exampleModal.modal.fade aria-labelledby="exampleModalLabel" role="dialog" tabindex="-1" 
   .modal-dialog
@@ -34,12 +34,20 @@ javascript:
     svgStyle: {width: '100%', height: '100%'}
   });
 
-  $('#expampleModal').on('shown.bs.modal', function(){
-    bar.animate(1.0); 
-  });
+  if (@oldLevel === current_user.level) {
+  
+  } else {
+    $('#exampleModal').modal
+    $('#exampleModal').on('shown.bs.modal', function(){
+      bar.animate(1.0); 
+    });
+  }
 
-  bar.animate(1.0); 
+  // $('#exampleModal').on('shown.bs.modal', function(){
+  //   bar.animate(1.0); 
+  // });
 
+- binding.pry
 
 - @logs.each do |log|
   .container-fluid
