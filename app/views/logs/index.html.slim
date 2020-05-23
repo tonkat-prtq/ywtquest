@@ -9,15 +9,15 @@
   .modal-dialog
     .modal-content
       .modal-header
-        h5#exampleModalLabel.modal-title モーダルのタイトル
+        h5#exampleModalLabel.modal-title レベルアップしました！
         button.close aria-label="閉じる" data-dismiss="modal" type="button" 
           span aria-hidden="true"
       .modal-body
+        p.levelup-text #{@oldLevel} → #{current_user.level}
         .col-xs-12.col-sm-12.progress-container
           #progressbar
       .modal-footer
         button.btn.btn-secondary data-dismiss="modal" type="button"  閉じる
-        button.btn.btn-primary type="button"  変更を保存
       /! /.modal-footer
     /! /.modal-content
   /! /.modal-dialog
@@ -41,15 +41,15 @@ javascript:
   console.log(currentLevel)
 
   if (oldLevel === currentLevel) {
-    console.log("true")
-    $('#exampleModal').modal // テストのため記述
-  } else {
+  } else if (oldLevel !== 0) {
     console.log("false")
-    $('#exampleModal').modal
+    $('#exampleModal').modal();
     $('#exampleModal').on('shown.bs.modal', function(){
       bar.animate(1.0); 
     });
-  };
+    } else {
+
+    };
 
 - @logs.each do |log|
   .container-fluid
