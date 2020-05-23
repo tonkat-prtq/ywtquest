@@ -7,6 +7,7 @@ class LogsController < ApplicationController
 
   def index
     @oldLevel = params[:old_level]
+    @oldLevel = @oldLevel.to_i
     if params[:tag_name]
       @logs = current_user.logs.tagged_with("#{params[:tag_name]}")
     else
