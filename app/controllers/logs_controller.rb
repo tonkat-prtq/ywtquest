@@ -7,6 +7,7 @@ class LogsController < ApplicationController
 
   def index
     @oldLevel = params[:old_level]
+    @oldLevel = @oldLevel.to_i
     if params[:tag_name]
       @logs = current_user.logs.tagged_with("#{params[:tag_name]}")
     else
@@ -36,7 +37,6 @@ class LogsController < ApplicationController
     else
       if @log.save
         levelup
-        @log.hash_string = Digest::SHA1.hexdigest(Time.now.to_s)
         redirect_to logs_path(old_level: @oldLevel), flash: {success: "YWTを作成しました"}
         # PostMailer.post_mail(current_user.email).deliver
       else
@@ -125,10 +125,6 @@ class LogsController < ApplicationController
       flash[:success] = "レベルが上がりました！"
     end
     return @oldLevel
-  end
-
-  def limited_share
-    @log = Log.where(hash_string: params[:h]).first
   end
 
 end

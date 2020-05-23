@@ -1,6 +1,55 @@
 .container-fluid
   == render 'logs/top_buttons'
 
+/! 切り替えボタンの設定
+/ button.btn.btn-primary.btn-modal data-target="#exampleModal" data-toggle="modal" type="button" 
+/   | ココを押すと表示
+/! モーダルの設定
+#exampleModal.modal.fade aria-labelledby="exampleModalLabel" role="dialog" tabindex="-1" 
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h5#exampleModalLabel.modal-title レベルアップしました！
+        button.close aria-label="閉じる" data-dismiss="modal" type="button" 
+          span aria-hidden="true"
+      .modal-body
+        p.levelup-text #{@oldLevel} → #{current_user.level}
+        .col-xs-12.col-sm-12.progress-container
+          #progressbar
+      .modal-footer
+        button.btn.btn-secondary data-dismiss="modal" type="button"  閉じる
+      /! /.modal-footer
+    /! /.modal-content
+  /! /.modal-dialog
+/! /.modal
+
+javascript:
+  var bar = new ProgressBar.Line(progressbar, {
+    strokeWidth: 4,
+    easing: 'easeInOut',
+    duration: 2000,
+    color: '#7FCAC3',
+    trailColor: '#eee',
+    trailWidth: 1,
+    svgStyle: {width: '100%', height: '100%'}
+  });
+  
+  var oldLevel = #{@oldLevel}
+  var currentLevel = #{current_user.level}
+
+  console.log(oldLevel)
+  console.log(currentLevel)
+
+  if (oldLevel === currentLevel) {
+  } else if (oldLevel !== 0) {
+    console.log("false")
+    $('#exampleModal').modal();
+    $('#exampleModal').on('shown.bs.modal', function(){
+      bar.animate(1.0); 
+    });
+    } else {
+
+    };
 
 - @logs.each do |log|
   .container-fluid
@@ -76,38 +125,3 @@
 
 .container-fluid.mt-3 = paginate @logs
 
-/                     div*{class: "card-header", id: "done-heading-#{d.id}"} role="tab" 
-                      h5.mb-0
-                        a.text-body.d-block.p-3.m-n3[data-toggle="collapse"
-                          href="done-content-#{d.id}"
-                          role="button" 
-                          aria-expanded="true" 
-                          aria-controls="done-content-#{d.id}"]
-                          span #{d.title}
-                    div*{id: "done-content-#{d.id}", class: "collapse show"} role="tabpanel" aria-labelledby="done-heading-#{d.id}" data-parent="#accordion"
-                      .card-body
-                        p.card-text #{d.comment}
-
-/ - @logs.each do |log|
-/   - if log.started_on == log.ended_on || log.ended_on.nil? # 開始日と終了日が同じか、ended_onに何も入力されていない場合は、一日の記録として表示する
-/     p 日付: #{log.started_on}
-/   - else # そうでない場合は、開始日から終了日といった、期間として表示する
-/     = log.started_on
-/     | から
-/     = log.ended_on
-
-/   == render 'logs/tag_list', tag_list: log.tag_list
-  
-/   - log.dones.each do |d|
-/     p やったこと: #{d.title}
-/     p 詳細: #{d.comment}
-/     - unless d.worktime == 0 # もし時間が設定されていなかったら表示しない
-/       p 費やした時間: #{d.worktime} 分 
-
-/   - log.knowledges.each do |k|
-/     p わかったこと: #{k.title}
-/     p 詳細: #{k.comment}
-/   - log.todos.each do |t|
-/     p 次やること: #{t.title}
-/     p 期限: #{t.when_to_do}
-  
