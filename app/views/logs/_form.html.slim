@@ -24,7 +24,8 @@
       = f.label :tag_list
       br
       = f.text_field :tag_list, value: @log.tag_list.join(','), class: 'form-control', data: {role: "tagsinput"}
-
+      / ヒント
+      small.form-text.text-muted タグ付けできます（Enterで登録）
     div.form-row.mt-5
       / やったことのフォーム
       div.dones-form.col-md-6
