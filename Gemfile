@@ -43,6 +43,8 @@ group :development, :test do
   gem 'hirb-unicode'
   gem 'pry-rails'
   gem 'pry-byebug'
+  gem 'rspec-rails', '~> 3.8'
+  gem 'factory_bot_rails'
 end
 
 group :development do
