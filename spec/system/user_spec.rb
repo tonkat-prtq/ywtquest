@@ -55,17 +55,35 @@ RSpec.describe 'Users', type: :system do
     end
   end
 
-  describe 'ログイン機能' do
+  describe 'ログイン/ログアウト機能' do
+    before do
+      visit new_user_session_path
+    end
+
     context 'ユーザーのデータがある' do
-      example 'ログインができる' do
-        visit new_user_session_path
+      before do
         fill_in 'user[email]', with: @user.email
         fill_in 'user[password]', with: @user.password
         click_button 'ログイン'
+      end
+
+      example 'ログインできる' do
         expect(page).to have_text 'ログインしました。'
+      end
+
+      example 'ログアウトできる' do
+        click_on 'ログアウト'
+        expect(page).to have_text 'ログアウトしました。'
+      end
+    end
+
+    context 'ユーザーのデータがない' do
+      example 'ログインできない' do
+        fill_in 'user[email]', with: 'niluser@nil.com'
+        fill_in 'user[password]', with: 'nilnilnil'
+        click_button 'ログイン'
+        expect(page).to have_text 'メールアドレスまたはパスワードが違います。'
       end
     end
   end
-
-
 end
