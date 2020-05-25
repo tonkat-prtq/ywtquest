@@ -54,4 +54,18 @@ RSpec.describe 'Users', type: :system do
       end
     end
   end
+
+  describe 'ログイン機能' do
+    context 'ユーザーのデータがある' do
+      example 'ログインができる' do
+        visit new_user_session_path
+        fill_in 'user[email]', with: @user.email
+        fill_in 'user[password]', with: @user.password
+        click_button 'ログイン'
+        expect(page).to have_text 'ログインしました。'
+      end
+    end
+  end
+
+
 end
