@@ -43,8 +43,15 @@ RSpec.describe 'Users', type: :system do
 
     context 'すでにログインしている場合' do
       before do
-        
+        visit new_user_session_path
+        fill_in 'user[email]', with: @user.email
+        fill_in 'user[password]', with: @user.password
+        click_button 'ログイン'
       end
-      example 'ユーザー新規登録ページに飛べない'
+      example 'ユーザー新規登録ページに飛べない' do
+        visit new_user_registration_path
+        expect(page).to have_text 'すでにログインしています。'
+      end
+    end
   end
 end
