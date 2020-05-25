@@ -1,10 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :system do
+  before do
+    @user = create(:user)
+  end
+
   describe 'ユーザー登録画面' do
+    before do
+      visit new_user_registration_path
+    end
+    
     context 'ユーザーのデータがなくログインしていない場合' do
       example 'ユーザー新規登録が出来る' do
-        visit new_user_registration_path
         fill_in 'user[name]', with: 'firstUser'
         fill_in 'user[email]', with: 'firstuser@test.com'
         fill_in 'user[password]', with: 'password'
@@ -24,7 +31,8 @@ RSpec.describe 'Users', type: :system do
     end
     context 'ユーザーのデータがありログインしていない場合' do
       example 'ユーザー新規登録が出来ない' do
-        
+        fill_in 'user[name]', with: @user.name
+        binding.pry
       end
     end
   end
