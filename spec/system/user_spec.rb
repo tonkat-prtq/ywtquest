@@ -10,9 +10,21 @@ RSpec.describe 'Users', type: :system do
         fill_in 'user[password]', with: 'password'
         fill_in 'user[password_confirmation]', with: 'password'
         click_button '登録する'
-        expect { click_button '登録する' }.to change { ActionMailer::Base.deliveries.size }.by(1)
-        # click_on 'メールアドレスの確認'
-        # expect(page).to have_content 'メールアドレスが確認できました。'
+        # 登録するボタンを押した時にuserの作成はされる
+        # なのでUser.lastでその情報を持ってきて
+        user = User.last
+        # 変数にuser.confirmation_tokenを代入
+        token = user.confirmation_token
+        # 本来はメール本文に貼ってある確認用のリンクにvisitし
+        # confirmation_tokenに変数tokenをセットすることによって
+        # メール認証をしたことにできる
+        visit user_confirmation_path(confirmation_token: token)
+        expect(page).to have_content 'メールアドレスが確認できました。'
+      end
+    end
+    context 'ユーザーのデータがありログインしていない場合' do
+      example 'ユーザー新規登録が出来ない' do
+        
       end
     end
   end
