@@ -9,7 +9,7 @@ RSpec.describe 'Users', type: :system do
     before do
       visit new_user_registration_path
     end
-    
+
     context 'ユーザーのデータがなくログインしていない場合' do
       example 'ユーザー新規登録が出来る' do
         fill_in 'user[name]', with: 'firstUser'
@@ -29,11 +29,22 @@ RSpec.describe 'Users', type: :system do
         expect(page).to have_content 'メールアドレスが確認できました。'
       end
     end
+
     context 'ユーザーのデータがありログインしていない場合' do
       example 'ユーザー新規登録が出来ない' do
         fill_in 'user[name]', with: @user.name
-        binding.pry
+        fill_in 'user[email]', with: @user.email
+        fill_in 'user[password]', with: @user.password
+        fill_in 'user[password_confirmation]', with: @user.password
+        click_button '登録する'
+        expect(page).to have_text 'メールアドレスはすでに存在します'
       end
     end
+
+    context 'すでにログインしている場合' do
+      before do
+        
+      end
+      example 'ユーザー新規登録ページに飛べない'
   end
 end
