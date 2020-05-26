@@ -73,6 +73,11 @@ RSpec.describe 'Logs', type: :model do
       example 'titleが空でなく、when_to_doがended_onより未来の日付ならOK' do
         expect(@todo.valid?).to eq(true)
       end
+
+      example 'titleが空はNG' do
+        @todo.title = ""
+        expect(@todo.valid?).to eq(false)
+      end
     end
 
 
