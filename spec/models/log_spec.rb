@@ -23,20 +23,33 @@ RSpec.describe 'Logs', type: :model do
     end
 
     context 'やったこと(dones)のバリデーション' do
-      example 'やったことのtitleが空でなく、title,comment,worktimeの文字数制限に引っかからなければOK' do
+      example 'titleが空でなく、title,comment,worktimeの文字数制限に引っかからなければOK' do
         expect(@done.valid?).to eq(true)
       end
 
-      example 'やったことのtitleが空はNG' do
+      example 'titleが空はNG' do
         @done.title = ""
         expect(@done.valid?).to eq(false)
       end
 
-      example 'やったことの文字数が255文字以上はNG' do
+      example 'titleの文字数が255文字以上はNG' do
         @done.title = "qwerty" * 100
         expect(@done.valid?).to eq(false)
       end
+
+      example 'commentの文字数が5000文字以上はNG' do
+        @done.comment = "qwerty" * 900
+        expect(@done.valid?).to eq(false)
+      end
+
+      example 'worktimeの文字数（桁数）が6以上はNG' do
+        @done.worktime = 198619
+        expect(@done.valid?).to eq(false)
+      end
     end
+
+    context 'わかったこと(knowledges)のバリデーション' do
+      example ''
 
   end
 end
