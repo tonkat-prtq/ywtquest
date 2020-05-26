@@ -65,4 +65,10 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # seedデータを読み込む設定
+  # これがないとLevelSettingに決まった値を読み込めず、エラーが発生する
+  config.before(:suite) do
+    require Rails.root.join("db", "seeds")
+  end
 end
