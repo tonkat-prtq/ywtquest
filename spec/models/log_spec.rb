@@ -33,7 +33,7 @@ RSpec.describe 'Logs', type: :model do
       end
 
       example 'titleの文字数が255文字以上はNG' do
-        @done.title = "qwerty" * 100
+        @done.title = "qwerty" * 50
         expect(@done.valid?).to eq(false)
       end
 
@@ -58,8 +58,21 @@ RSpec.describe 'Logs', type: :model do
         expect(@knowledge.valid?).to eq(false)
       end
 
-      example
+      example 'titleの文字数が255文字以上はNG' do
+        @knowledge.title = "qwerty" * 50
+        expect(@knowledge.valid?).to eq(false)
+      end
 
+      example 'commentの文字数が5000文字以上はNG' do
+        @knowledge.comment = "qwerty" * 900
+        expect(@knowledge.valid?).to eq(false)
+      end
+    end
+
+    context '次やること(Todos)のバリデーション' do
+      example 'titleが空でなく、when_to_doがended_onより未来の日付ならOK' do
+        expect(@todo.valid?).to eq(true)
+      end
     end
 
 
