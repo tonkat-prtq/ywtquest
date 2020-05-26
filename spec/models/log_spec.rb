@@ -49,7 +49,11 @@ RSpec.describe 'Logs', type: :model do
     end
 
     context 'わかったこと(knowledges)のバリデーション' do
-      example ''
+      example 'titleが空でなく、title,commentの文字数制限に引っかからなければOK' do
+        expect(@knowledge.valid?).to eq(true)
+      end
+    end
+
 
   end
 end
