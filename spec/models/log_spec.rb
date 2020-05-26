@@ -52,6 +52,14 @@ RSpec.describe 'Logs', type: :model do
       example 'titleが空でなく、title,commentの文字数制限に引っかからなければOK' do
         expect(@knowledge.valid?).to eq(true)
       end
+
+      example 'titleが空はNG' do
+        @knowledge.title = ""
+        expect(@knowledge.valid?).to eq(false)
+      end
+
+      example
+
     end
 
 
