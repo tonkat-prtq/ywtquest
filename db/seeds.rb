@@ -7,38 +7,41 @@ CSV.foreach('db/level_setting(仮).csv', headers: true) do |row|
   )
 end
 
-firstuser = User.new(
-  name: "first user",
-  email: "firstuser@test.com",
-  password: "password",
-  id: 1
-)
-
-firstuser.skip_confirmation!
-firstuser.save!
-
-20.times do |no|
-  Log.create(
-    started_on: Time.now,
-    ended_on: Time.now + 1.days,
-    user_id: 1
+unless Rails.env.test? # テスト環境では以下のseedデータは不要
+  firstuser = User.new(
+    name: "first user",
+    email: "firstuser@test.com",
+    password: "password",
+    id: 1
   )
 
-  Done.create(
-    title: "やったこと #{no}",
-    comment: "これやった",
-    log_id: no
-  )
+  firstuser.skip_confirmation!
+  firstuser.save!
 
-  Knowledge.create(
-    title: "わかったこと #{no}",
-    comment: "これがわかった",
-    log_id: no
-  )
+  20.times do |no|
+    Log.create(
+      started_on: Time.now,
+      ended_on: Time.now + 1.days,
+      user_id: 1
+    )
 
-  Todo.create(
-    title: "次やること #{no}",
-    when_to_do: Time.now + 3.days,
-    log_id: no
-  )
+    Done.create(
+      title: "やったこと #{no}",
+      comment: "これやった",
+      log_id: no
+    )
+
+    Knowledge.create(
+      title: "わかったこと #{no}",
+      comment: "これがわかった",
+      log_id: no
+    )
+
+    Todo.create(
+      title: "次やること #{no}",
+      when_to_do: Time.now + 3.days,
+      log_id: no
+    )
+
+  end
 end
