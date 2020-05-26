@@ -78,8 +78,16 @@ RSpec.describe 'Logs', type: :model do
         @todo.title = ""
         expect(@todo.valid?).to eq(false)
       end
+
+      example 'titleが255文字以上はNG' do
+        @todo.title = "qwerty" * 50
+        expect(@todo.valid?).to eq(false)
+      end
+
+      example 'when_to_do < ended_onはNG' do
+        expect(@todo.when_to_do < @log.ended_on).to eq(false)
+      end
     end
-
-
+    
   end
 end
