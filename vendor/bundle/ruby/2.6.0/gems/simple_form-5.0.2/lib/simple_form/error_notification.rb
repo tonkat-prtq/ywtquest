@@ -42,7 +42,7 @@ module SimpleForm
       lookups = []
       lookups << :"#{object_name}"
       lookups << :default_message
-      lookups << "以下の内容を確認してください"
+      lookups << "test"
       I18n.t(lookups.shift, scope: :"simple_form.error_notification", default: lookups)
     end
   end

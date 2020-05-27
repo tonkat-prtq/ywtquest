@@ -270,7 +270,7 @@ ja:
       todos:
         title: 次やること
         when_to_do: 期限
-      error_notification:
-        default_message: 入力内容を確認してください
+    error_notification:
+      default_message: 以下の入力内容を確認してください
     required:
       html: '<abbr class="nec">必須</abbr>'
