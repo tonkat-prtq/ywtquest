@@ -274,3 +274,8 @@ ja:
       default_message: 以下の入力内容を確認してください
     required:
       html: '<abbr class="nec">必須</abbr>'
+  users:
+    show:
+      require_exp: あと %{reqlevelset} exp
+      totaltime: やったことの合計時間
+      minutes: 分
