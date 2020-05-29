@@ -6,7 +6,9 @@
       = content_tag(:i, "", class: "far fa-edit fa-lg")
     .progress.mb-1
       .progress-bar.progress-bar-striped.bg-charmycyan.progress-bar-animated role="progressbar" style="width: #{@req_percent}%"
-    .reqexp あと #{@levelsetting.threshold - @user.exp_point} exp
+    / 元のコード
+    / .reqexp あと #{@levelsetting.threshold - @user.exp_point} exp
+    .reqexp = t('.require_exp', reqlevelset: @levelsetting.threshold - @user.exp_point)
     / - if current_user.id == @user.id
     /   .email.mb-3
     /     .d-inline Email:
@@ -22,14 +24,13 @@
       .col-sm-4
         p.counter #{@user.dones.count}
         / 合計時間(userのtotaltimeカラムの代わり)
-        span.totaltime-label やったことの合計時間
+        span.totaltime-label = t('.totaltime')
         br
         span.totaltime #{@user.dones.sum(:worktime)}
-        span.minutes 分
+        span.minutes = t('.minutes')
       .col-sm-4
         p.counter #{@user.knowledges.count}
       .col-sm-4
         p.counter #{@user.todos.count}
-
 
 
