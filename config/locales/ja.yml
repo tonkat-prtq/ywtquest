@@ -279,3 +279,8 @@ ja:
       require_exp: あと %{reqlevelset} exp
       totaltime: やったことの合計時間
       minutes: 分
+  logs:
+    index:
+      levelup_now: レベルアップしました！
+      level_calc: "%{oldlevel} → %{current_level}"
+      close: 閉じる

@@ -9,15 +9,16 @@
   .modal-dialog
     .modal-content
       .modal-header
-        h5#exampleModalLabel.modal-title レベルアップしました！
+        h5#exampleModalLabel.modal-title = t('.levelup_now')
         button.close aria-label="閉じる" data-dismiss="modal" type="button" 
           span aria-hidden="true"
       .modal-body
-        p.levelup-text #{@oldLevel} → #{current_user.level}
+        / p.levelup-text #{@oldLevel} → #{current_user.level}
+        p.levelup-text = t('.level_calc', oldlevel: @oldLevel, current_level: current_user.level)
         .col-xs-12.col-sm-12.progress-container
           #progressbar
       .modal-footer
-        button.btn.btn-secondary data-dismiss="modal" type="button"  閉じる
+        button.btn.btn-secondary data-dismiss="modal" type="button" = t('.close')
       /! /.modal-footer
     /! /.modal-content
   /! /.modal-dialog
