@@ -92,7 +92,7 @@ javascript:
                             = d.comment
                         - unless d.worktime == 0
                           .card-footer
-                            .worktime.float-right #{d.worktime}分 
+                            .worktime.float-right = t('.worktime', worktime: d.worktime)
             / ここからWのカラム
             .col-sm-4
               / Wの情報をkに格納
@@ -124,5 +124,4 @@ javascript:
                             span.title #{t.title}
                             span.when-to-do.float-right.align-text-bottom 期限:#{t.when_to_do}
 
-.container-fluid.mt-3 = paginate @logs
-
+.container-fluid.mt-3 = paginate @logs, params: {old_level: current_user.level}

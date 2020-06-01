@@ -284,3 +284,4 @@ ja:
       levelup_now: レベルアップしました！
       level_calc: "%{oldlevel} → %{current_level}"
       close: 閉じる
+      worktime: "%{worktime}分"
