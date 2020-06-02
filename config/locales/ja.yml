@@ -286,3 +286,6 @@ ja:
       close: 閉じる
       term: "%{start_on}から%{end_on}"
       worktime: "%{worktime}分"
+      tooltip:
+        delete: 削除
+        edit: 編集

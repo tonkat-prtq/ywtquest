@@ -63,9 +63,9 @@ javascript:
         - else # そうでない場合は、開始日から終了日といった、期間として表示する
           span.mr-3 = t('.term', start_on: log.started_on, end_on: log.ended_on)
         == render 'logs/tag_list', tag_list: log.tag_list
-        .float-right.ml-3 = link_to log_path(log.id), method: :delete, class: 'text-reset', 'data-toggle': "tooltip", 'title': "削除"
+        .float-right.ml-3 = link_to log_path(log.id), method: :delete, class: 'text-reset', 'data-toggle': "tooltip", 'title': t('.tooltip.delete')
           = content_tag(:i, "", class: "fas fa-trash-alt fa-lg")
-        .float-right =link_to edit_log_path(log.id), class: 'text-reset', 'data-toggle': "tooltip", 'title': "編集", "data-turbolinks": false 
+        .float-right =link_to edit_log_path(log.id), class: 'text-reset', 'data-toggle': "tooltip", 'title': t('.tooltip.edit'), "data-turbolinks": false 
           = content_tag(:i, "", class: "far fa-edit fa-lg")
 
       / Logsカードのbody, Y, W, Tを格納している
