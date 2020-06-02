@@ -289,3 +289,5 @@ ja:
       tooltip:
         delete: 削除
         edit: 編集
+      todos:
+        when_to_do: "期限:%{when_to_do}"
