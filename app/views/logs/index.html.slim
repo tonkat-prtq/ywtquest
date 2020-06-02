@@ -61,7 +61,7 @@ javascript:
         - if log.started_on == log.ended_on || log.ended_on.nil? # 開始日と終了日が同じか、ended_onに何も入力されていない場合は、一日の記録として表示する
           span.mr-3 #{log.started_on}
         - else # そうでない場合は、開始日から終了日といった、期間として表示する
-          span.mr-3 #{log.started_on} から #{log.ended_on}
+          span.mr-3 = t('.term', start_on: log.started_on, end_on: log.ended_on)
         == render 'logs/tag_list', tag_list: log.tag_list
         .float-right.ml-3 = link_to log_path(log.id), method: :delete, class: 'text-reset', 'data-toggle': "tooltip", 'title': "削除"
           = content_tag(:i, "", class: "fas fa-trash-alt fa-lg")
