@@ -291,3 +291,7 @@ ja:
         edit: 編集
       todos:
         when_to_do: "期限:%{when_to_do}"
+    new: 新規作成
+    form:
+      dayfield_hint: 開始日と終了日が同じの場合、その日のYWTとして記録できます
+      tag_hint: タグ付けできます（Enterで登録
