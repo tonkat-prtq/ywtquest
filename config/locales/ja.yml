@@ -270,6 +270,12 @@ ja:
       todos:
         title: 次やること
         when_to_do: 期限
+    placeholders:
+      log:
+        dones:
+          title: やったことを入力しよう
+          worktime: (分)
+          comment: やったことの詳細を入力しよう
     error_notification:
       default_message: 以下の入力内容を確認してください
     required:
