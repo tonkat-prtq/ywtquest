@@ -276,6 +276,9 @@ ja:
           title: やったことを入力しよう
           worktime: (分)
           comment: やったことの詳細を入力しよう
+        knowledges:
+          title: わかったことを入力しよう
+          comment: わかったことの詳細を入力しよう
     error_notification:
       default_message: 以下の入力内容を確認してください
     required:
