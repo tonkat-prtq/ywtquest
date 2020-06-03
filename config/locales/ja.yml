@@ -295,3 +295,4 @@ ja:
     form:
       dayfield_hint: 開始日と終了日が同じの場合、その日のYWTとして記録できます
       tag_hint: タグ付けできます（Enterで登録
+      submit: 送信する
