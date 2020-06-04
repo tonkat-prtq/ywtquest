@@ -310,3 +310,7 @@ ja:
       submit: 送信する
       todos:
         when_to_do_hint: デフォルトでは明日
+    top_buttons:
+      dones: やったこと
+      knowledges: わかったこと
+      todos: 次やること
