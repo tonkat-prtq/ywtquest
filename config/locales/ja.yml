@@ -188,6 +188,7 @@ ja:
       submit: 送信
       update: 更新
       back: 戻る
+      close: 閉じる
   number:
     currency:
       format:
@@ -294,8 +295,6 @@ ja:
       minutes: 分
   logs:
     common:
-      submit: 送信する
-      close: 閉じる
       term: "%{start_on}から%{end_on}"
       dones:
         worktime: "%{worktime}分"
