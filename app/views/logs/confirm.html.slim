@@ -1,5 +1,5 @@
 .container-fluid
-  h3 = t('.confirm')
+  h3 = t('logs.confirm')
   == render 'logs/top_buttons'
 
 
@@ -39,7 +39,7 @@
         - if @log.started_on == @log.ended_on || @log.ended_on.nil? # 開始日と終了日が同じか、ended_onに何も入力されていない場合は、一日の記録として表示する
           span.mr-3 #{@log.started_on}
         - else # そうでない場合は、開始日から終了日といった、期間として表示する
-          span.mr-3 #{@log.started_on} から #{@log.ended_on}
+          span.mr-3 = t('logs.common.term', start_on: @log.started_on, end_on: @log.ended_on)
         == render 'logs/tag_list', tag_list: @log.tag_list
 
       / Logsカードのbody, Y, W, Tを格納している
@@ -66,7 +66,7 @@
                             = d.comment
                         - unless d.worktime == 0
                           .card-footer
-                            .worktime.float-right #{d.worktime}分 
+                            .worktime.float-right = t('logs.common.dones.worktime', worktime: d.worktime)
             / ここからWのカラム
             .col-sm-4
               / Wの情報をkに格納
@@ -97,12 +97,12 @@
                         h6.mb-0
                           a.collapse.text-body.d-block.p-3.m-n3 data-toggle="collapse" href="#todo-content-#{t.id}" role="button" aria-expanded="true" aria-controls="todo-content-#{t.id}"
                             span.title #{t.title}
-                            span.when-to-do.float-right 期限:#{t.when_to_do}
+                            span.when-to-do.float-right = t('logs.common.todos.when_to_do', when_to_do: t.when_to_do)
 
         - if @log.id # 更新時と新規投稿時でボタンの内容を変える
-          = f.submit '更新', class: 'btn btn-primary'
+          = f.submit t('helpers.submit.update'), class: 'btn btn-primary'
         - else
-          = f.submit '送信', class: 'btn btn-primary'
+          = f.submit t('helpers.submit.submit'), class: 'btn btn-primary'
 
         = form_with(model:@log, local:true, url: new_log_path, method: :get) do |f|
 
@@ -123,6 +123,6 @@
             = t.hidden_field :title
             = t.hidden_field :when_to_do
 
-          = f.submit '戻る', name: 'back', class: 'btn btn-secondary ml-3'
+          = f.submit t('helpers.submit.back'), name: 'back', class: 'btn btn-secondary ml-3'
 
 

@@ -184,9 +184,10 @@ ja:
     select:
       prompt: 選択してください
     submit:
-      create: 登録する
-      submit: 保存する
-      update: 更新する
+      create: 登録
+      submit: 送信
+      update: 更新
+      back: 戻る
   number:
     currency:
       format:
@@ -292,26 +293,29 @@ ja:
       totaltime: やったことの合計時間
       minutes: 分
   logs:
+    common:
+      submit: 送信する
+      close: 閉じる
+      term: "%{start_on}から%{end_on}"
+      dones:
+        worktime: "%{worktime}分"
+      todos:
+        when_to_do: "期限:%{when_to_do}"
     index:
       levelup_now: レベルアップしました！
       level_calc: "%{oldlevel} → %{current_level}"
-      close: 閉じる
-      term: "%{start_on}から%{end_on}"
-      worktime: "%{worktime}分"
       tooltip:
         delete: 削除
         edit: 編集
-      todos:
-        when_to_do: "期限:%{when_to_do}"
     new: 新規作成
     form:
       dayfield_hint: 開始日と終了日が同じの場合、その日のYWTとして記録できます
-      tag_hint: タグ付けできます（Enterで登録
-      submit: 送信する
+      tag_hint: タグ付けできます（Enterで登録)
+      submit: 送信
       todos:
         when_to_do_hint: デフォルトでは明日
     top_buttons:
-      dones: やったこと
-      knowledges: わかったこと
-      todos: 次やること
+      btn-dones: やったこと
+      btn-knowledges: わかったこと
+      btn-todos: 次やること
     confirm: 確認画面
