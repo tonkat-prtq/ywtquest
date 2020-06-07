@@ -318,3 +318,10 @@ ja:
       btn-knowledges: わかったこと
       btn-todos: 次やること
     confirm: 確認画面
+    edit:
+      notice: 自分の記事以外の編集はできません
+    update:
+      notice: YWTを編集しました
+    destroy:
+      success: YWTを削除しました
+      danger: 不正な操作です
