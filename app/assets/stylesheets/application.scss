@@ -9,6 +9,9 @@
 @import "users/show.scss";
 
 // Landing
+body {
+  background-color: whitesmoke
+}
 
 .top-content {
   background-color: $charmycyan;
@@ -287,4 +290,18 @@ p.profile {
 .when-to-do {
   font-size: 0.8rem
   
+}
+
+// logs#index
+
+span.title {
+  font-size: 1.2rem;
+}
+
+.card-header {
+  background-color: rgba(134, 188, 231, 0.239);
+}
+
+.card-body {
+  background-color: rgba(248, 248, 248, 0.897);
 }

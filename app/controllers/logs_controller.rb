@@ -50,7 +50,7 @@ class LogsController < ApplicationController
   end
 
   def edit
-    redirect_to logs_path, flash: {danger: "自分の記事以外の編集はできません"} unless current_user.id == @log.user.id
+    redirect_to logs_path, flash: {danger: t('.notice')} unless current_user.id == @log.user.id
   end
 
   def update
@@ -58,7 +58,7 @@ class LogsController < ApplicationController
       render :edit
     else
       if @log.update(log_params)
-        redirect_to logs_path, flash: {success: "YWTを編集しました"}
+        redirect_to logs_path, flash: {success: t('.notice')}
       else
         render :edit
       end
@@ -74,9 +74,9 @@ class LogsController < ApplicationController
   def destroy
     if current_user.id == @log.user.id
       @log.destroy
-      redirect_to logs_path, flash: {success: "YWTを削除しました"}
+      redirect_to logs_path, flash: {success: t('.success')}
     else
-      redirect_to logs_path, flash: {danger: "不正な操作です"}
+      redirect_to logs_path, flash: {danger: t('.danger')}
     end
   end
 
@@ -122,7 +122,6 @@ class LogsController < ApplicationController
       user.level = user.level + 1
       user.update(level: user.level)
       levelSetting = LevelSetting.find_by(level: user.level + 1) # levelSettingをもう一度更新
-      flash[:success] = "レベルが上がりました！"
     end
     return @oldLevel
   end

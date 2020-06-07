@@ -2,10 +2,10 @@
   .field
     .row
       div.dones-title.form-group.col-md-8
-        = f.input :title, placeholder: "やったことを入力しよう！", class: 'form-control'
+        = f.input :title, class: 'form-control'
       div.dones-worktime.form-group.col-md-4
-        = f.input :worktime, placeholder: "（分）", class: 'form-control'
+        = f.input :worktime, class: 'form-control'
       div.dones-comment.form-group.col-md-12
-        = f.input :comment, placeholder: "やったことの詳細を入力しよう！", class: 'form-control'
+        = f.input :comment, class: 'form-control'
   = link_to_remove_association f, class: "btn btn-sm btn-spacegreen mb-1" do
     - content_tag(:i, "", class: "fas fa-minus")

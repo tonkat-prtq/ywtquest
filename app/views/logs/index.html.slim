@@ -9,15 +9,16 @@
   .modal-dialog
     .modal-content
       .modal-header
-        h5#exampleModalLabel.modal-title レベルアップしました！
+        h5#exampleModalLabel.modal-title = t('.levelup_now')
         button.close aria-label="閉じる" data-dismiss="modal" type="button" 
           span aria-hidden="true"
       .modal-body
-        p.levelup-text #{@oldLevel} → #{current_user.level}
+        / p.levelup-text #{@oldLevel} → #{current_user.level}
+        p.levelup-text = t('.level_calc', oldlevel: @oldLevel, current_level: current_user.level)
         .col-xs-12.col-sm-12.progress-container
           #progressbar
       .modal-footer
-        button.btn.btn-secondary data-dismiss="modal" type="button"  閉じる
+        button.btn.btn-secondary data-dismiss="modal" type="button" = t('helpers.submit.close')
       /! /.modal-footer
     /! /.modal-content
   /! /.modal-dialog
@@ -60,11 +61,11 @@ javascript:
         - if log.started_on == log.ended_on || log.ended_on.nil? # 開始日と終了日が同じか、ended_onに何も入力されていない場合は、一日の記録として表示する
           span.mr-3 #{log.started_on}
         - else # そうでない場合は、開始日から終了日といった、期間として表示する
-          span.mr-3 #{log.started_on} から #{log.ended_on}
+          span.mr-3 = t('logs.common.term', start_on: log.started_on, end_on: log.ended_on)
         == render 'logs/tag_list', tag_list: log.tag_list
-        .float-right.ml-3 = link_to log_path(log.id), method: :delete, class: 'text-reset', 'data-toggle': "tooltip", 'title': "削除"
+        .float-right.ml-3 = link_to log_path(log.id), method: :delete, class: 'text-reset', 'data-toggle': "tooltip", 'title': t('.tooltip.delete')
           = content_tag(:i, "", class: "fas fa-trash-alt fa-lg")
-        .float-right =link_to edit_log_path(log.id), class: 'text-reset', 'data-toggle': "tooltip", 'title': "編集", "data-turbolinks": false 
+        .float-right =link_to edit_log_path(log.id), class: 'text-reset', 'data-toggle': "tooltip", 'title': t('.tooltip.edit'), "data-turbolinks": false 
           = content_tag(:i, "", class: "far fa-edit fa-lg")
 
       / Logsカードのbody, Y, W, Tを格納している
@@ -91,7 +92,7 @@ javascript:
                             = d.comment
                         - unless d.worktime == 0
                           .card-footer
-                            .worktime.float-right #{d.worktime}分 
+                            .worktime.float-right = t('logs.common.worktime', worktime: d.worktime)
             / ここからWのカラム
             .col-sm-4
               / Wの情報をkに格納
@@ -121,7 +122,7 @@ javascript:
                         h6.mb-0
                           a.collapse.text-body.d-block.p-3.m-n3 data-toggle="collapse" href="#todo-content-#{t.id}" role="button" aria-expanded="true" aria-controls="todo-content-#{t.id}"
                             span.title #{t.title}
-                            span.when-to-do.float-right.align-text-bottom 期限:#{t.when_to_do}
+                            / span.when-to-do.float-right.align-text-bottom 期限:#{t.when_to_do}
+                            span.when-to-do.float-right.align-text-bottom = t('logs.common.todos.when_to_do', when_to_do: t.when_to_do)
 
-.container-fluid.mt-3 = paginate @logs
-
+.container-fluid.mt-3 = paginate @logs, params: {old_level: current_user.level}
