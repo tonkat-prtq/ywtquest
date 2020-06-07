@@ -122,7 +122,6 @@ class LogsController < ApplicationController
       user.level = user.level + 1
       user.update(level: user.level)
       levelSetting = LevelSetting.find_by(level: user.level + 1) # levelSettingをもう一度更新
-      flash[:success] = "レベルが上がりました！"
     end
     return @oldLevel
   end
