@@ -79,10 +79,11 @@ LogテーブルなしのER図
 
 <https://docs.google.com/spreadsheets/d/1ulOsu2guBDWNuytJj0uF_JhwTA1Jxa8RQbkVgi-vGgE/edit#gid=852384761##>
 
-## 使用予定Gem
+## 使用Gem
 
 - Devise
 - Simple_Form
 - acts-as-taggable-on
 - cocoon
 - kaminari
+- slim-rails
