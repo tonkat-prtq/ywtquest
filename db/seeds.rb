@@ -87,6 +87,12 @@ unless Rails.env.test? # テスト環境では以下のseedデータは不要
         title: "画面遷移図を見様見真似で作ってみた",
         worktime: 75,
         log_id: 4
+      },
+      {
+        title: "画面遷移図を見ながらラフ画をCacooで作った",
+        comment: "一覧画面は苦戦しそうだったので紙とペンを使ったが、やっぱり苦戦したのでここは後回しにした",
+        worktime: 186,
+        log_id: 5
       }
     ]
   )
@@ -137,6 +143,23 @@ unless Rails.env.test? # テスト環境では以下のseedデータは不要
       {
         title: "Cacooでは終点のスタイルを指定することで矢印ができる",
         log_id: 4
+      },
+      {
+        title: "Cacooは超便利",
+        comment: "綺麗にできればできるほどテンションが上がる",
+        log_id: 5
+      },
+      {
+        title: "時間かかりそうなやつは後回しにして、できそうなやつから片付けて行ったほうがいい",
+        log_id: 5
+      },
+      {
+        title: "ユーザー編集画面など、わざわざ用意しなくても実装できそう",
+        log_id: 5
+      },
+      {
+        title: "画面を作ると機能の見直しにもなる",
+        log_id: 5
       }
     ]
   )
@@ -200,6 +223,16 @@ unless Rails.env.test? # テスト環境では以下のseedデータは不要
       },
       {
         title: "画面遷移図は今後も必ず作ってからアプリを作成したい",
+        when_to_do: Time.now + 3.days,
+        log_id: 4
+      },
+      {
+        title: "一覧画面以外をぱぱっと作る",
+        when_to_do: Time.now + 3.days,
+        log_id: 5
+      },
+      {
+        title: "機能の見直しもする",
         when_to_do: Time.now + 3.days,
         log_id: 4
       }
