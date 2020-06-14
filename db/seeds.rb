@@ -82,6 +82,11 @@ unless Rails.env.test? # テスト環境では以下のseedデータは不要
         title: "カテゴリーにユーザーIDを追加するか迷う",
         comment: "結局追加する",
         log_id: 3
+      },
+      {
+        title: "画面遷移図を見様見真似で作ってみた",
+        worktime: 75,
+        log_id: 4
       }
     ]
   )
@@ -128,6 +133,10 @@ unless Rails.env.test? # テスト環境では以下のseedデータは不要
         title: "user_idを紐付けなきゃいけないテーブルがたくさんあった",
         comment: "図を作ることで見落としに気づけた",
         log_id: 3
+      },
+      {
+        title: "Cacooでは終点のスタイルを指定することで矢印ができる",
+        log_id: 4
       }
     ]
   )
@@ -178,6 +187,21 @@ unless Rails.env.test? # テスト環境では以下のseedデータは不要
         title: "カテゴリーにユーザーIDが本当に必要かもう一度考える",
         when_to_do: Time.now + 3.days,
         log_id: 3
+      },
+      {
+        title: "画面遷移図の細かいところを詰める",
+        when_to_do: Time.now + 3.days,
+        log_id: 4
+      },
+      {
+        title: "ワイヤーフレームに取り掛かる",
+        when_to_do: Time.now + 3.days,
+        log_id: 4
+      },
+      {
+        title: "画面遷移図は今後も必ず作ってからアプリを作成したい",
+        when_to_do: Time.now + 3.days,
+        log_id: 4
       }
     ]
   )
