@@ -66,6 +66,22 @@ unless Rails.env.test? # テスト環境では以下のseedデータは不要
         comment: "しかし、YWTが複数あってそれぞれが複雑に関連づいているものを、どうやって1つのテーブルで管理するのか検討がつかなかった。もしかしてcreated_atで持ってこれるかもしれない？とは考えた",
         worktime: 40,
         log_id: 2
+      },
+      {
+        title: "テーブル設計が終わったのでCacooでER図を作ってみる",
+        worktime: 60,
+        log_id: 3
+      },
+      {
+        title: "途中でユーザー機能のためのテーブルがなかったことに気づき、追加する",
+        comment: "元あったカラムにもuser_idを追加するべきかどうかを考える",
+        worktime: 60,
+        log_id: 3
+      },
+      {
+        title: "カテゴリーにユーザーIDを追加するか迷う",
+        comment: "結局追加する",
+        log_id: 3
       }
     ]
   )
@@ -99,6 +115,19 @@ unless Rails.env.test? # テスト環境では以下のseedデータは不要
         title: "カテゴリ選択は機能実装自体出来ても、それを扱いやすくするUIや実現するコードについては検討つかず難しそう",
         comment: "なのでそこまで追い求めないほうが良さそう",
         log_id: 2
+      },
+      {
+        title: "ER図作成はCacooがやりやすい",
+        log_id: 3
+      },
+      {
+        title: "user_idを紐付けることで自分が使ったカテゴリーだけ表示できるはず?",
+        log_id: 3
+      },
+      {
+        title: "user_idを紐付けなきゃいけないテーブルがたくさんあった",
+        comment: "図を作ることで見落としに気づけた",
+        log_id: 3
       }
     ]
   )
@@ -139,6 +168,16 @@ unless Rails.env.test? # テスト環境では以下のseedデータは不要
         title: "頭が痛くなるようなテーブル設計だけでなく、楽しくなるようなこと（例えばロゴやカラー決めなど）をちょくちょく挟むと集中力が切れなくていいかも",
         when_to_do: Time.now + 3.days,
         log_id: 2
+      },
+      {
+        title: "画面遷移図、ワイヤーフレームを作る",
+        when_to_do: Time.now + 3.days,
+        log_id: 3
+      },
+      {
+        title: "カテゴリーにユーザーIDが本当に必要かもう一度考える",
+        when_to_do: Time.now + 3.days,
+        log_id: 3
       }
     ]
   )
