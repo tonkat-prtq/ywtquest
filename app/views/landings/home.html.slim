@@ -4,10 +4,16 @@ div.top-content
       学習を習慣化するための、<br>
       YWT記録アプリ
 
-  p.sub-text.pl-5.ml-5.pb-5
+  p.sub-text.pl-5.ml-5.pb-2
     |
       YWT（やったこと、わかったこと、次やること）を使った振り返りフレームワークで、<br>
       あなたの学習をサポート！
+  
+  p.link-text.pl-5.ml-5
+    |
+      GitHub 
+    = link_to 'https://github.com/tonkat-prtq/ywtquest', class: 'text-reset'
+      = content_tag(:i, "", class: "fab fa-github fa-lg text-decoration-none")
 
 div.content-1 
   .screenshots.index-image.mb-4 = image_tag 'logsindex.png'
