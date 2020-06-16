@@ -18,7 +18,7 @@ unless Rails.env.test? # テスト環境では以下のseedデータは不要
   firstuser.skip_confirmation!
   firstuser.save!
 
-  10.times do |n| 
+  5.times do |n| 
     Log.create!(
       started_on: Time.now,
       ended_on: Time.now,
