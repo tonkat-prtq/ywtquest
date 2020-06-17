@@ -2,6 +2,7 @@
 
 class Users::RegistrationsController < Devise::RegistrationsController
   before_action :authenticate_user!
+  before_action :testuser_check, only: [:edit]
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -21,9 +22,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def edit
+    binding.pry
+    super
+  end
 
   # PUT /resource
   # def update
@@ -48,6 +50,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def update_resource(resource, params) # パスワードなしでユーザーの情報を更新出来るように
     resource.update_without_current_password(params)
+  end
+
+  def testuser_check
+    if current_user.id = 1
+      redirect_to user_path(current_user.id)
+    end
   end
 
   # If you have extra params to permit, append them to the sanitizer.
