@@ -23,6 +23,11 @@ html
           = link_to "マイページ", user_path(current_user.id), class: 'text-reset text-decoration-none'
       - else
         .mr-auto
+        div.mr-5
+          = simple_form_for(User.new, url:new_user_session_path) do |f|
+            = f.hidden_field :email, value: "firstuser@test.com"
+            = f.hidden_field :password, value: "password"
+            = f.submit "かんたんログイン", class: "btn d-block btn-dark navbar-btn"
         div.btn.d-block.btn-dark.navbar-btn.mr-5
           = link_to "新規登録", new_user_registration_path, class: 'text-reset text-decoration-none'
         div.btn.d-block.btn-dark.navbar-btn.mr-5
