@@ -2,6 +2,7 @@
   .container
     .name.d-inline #{@user.name}
     .ml-5.float.d-inline.level(style="width:100px;") Level.#{@user.level}
+    / ゆくゆくはidで判別ではなく、userに別カラムを追加(priority?)して判断するべき
     - unless current_user.id = 1
       .float-right.mt-5 = link_to edit_user_registration_path(@user.id), class: 'text-reset', 'data-toggle': "tooltip", 'title': "編集"
         = content_tag(:i, "", class: "far fa-edit fa-lg")
