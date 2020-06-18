@@ -8,13 +8,7 @@
         = content_tag(:i, "", class: "far fa-edit fa-lg")
     .progress.mb-1
       .progress-bar.progress-bar-striped.bg-charmycyan.progress-bar-animated role="progressbar" style="width: #{@req_percent}%"
-    / 元のコード
-    / .reqexp あと #{@levelsetting.threshold - @user.exp_point} exp
     .reqexp = t('.require_exp', reqlevelset: @levelsetting.threshold - @user.exp_point)
-    / - if current_user.id == @user.id
-    /   .email.mb-3
-    /     .d-inline Email:
-    /     .ml-2.d-inline.email-address #{@user.email}
     .container-fluid.rounded.align-items-stretch.profile.mb-3
       .lead.p-1.pb-4.profile-text #{@user.profile}
 
