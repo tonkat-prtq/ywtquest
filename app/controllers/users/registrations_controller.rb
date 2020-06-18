@@ -23,7 +23,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
-    binding.pry
     super
   end
 
@@ -53,9 +52,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def testuser_check
-    if current_user.id = 1
+    if current_user.id == 1
       redirect_to user_path(current_user.id)
     end
+  end
+
+  # deviseのupdateアクションで呼び出されてるこのメソッドをオーバーライドすることで
+  # ユーザー編集後にroot_pathではなく任意のpathへ飛ばせる
+  def after_update_path_for(resource)
+    user_path(current_user.id)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
