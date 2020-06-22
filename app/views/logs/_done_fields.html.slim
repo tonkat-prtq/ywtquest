@@ -4,7 +4,7 @@
       div.dones-title.form-group.col-md-8
         = f.input :title, class: 'form-control'
       div.dones-worktime.form-group.col-md-4
-        = f.input :worktime, class: 'form-control'
+        = f.input :worktime, input_html: { min: 0 }, class: 'form-control'
       div.dones-comment.form-group.col-md-12
         = f.input :comment, class: 'form-control'
   = link_to_remove_association f, class: "btn btn-sm btn-spacegreen mb-1" do
