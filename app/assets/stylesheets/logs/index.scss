@@ -25,8 +25,12 @@ span.title {
   background-color: rgba(248, 248, 248, 0.897);
 }
 
+.card .dones, .knowledges, .todos{
+  box-shadow: 3px 3px 6px -2px #555,
+  3px 3px 8px rgba(255,255,255,0.8) inset;
+}
 // ywtのカード用（新デザイン）
-@mixin ywt-card-header($bordercolor: $spaceblue) {
+@mixin ywt-card-header($bordercolor: $second-color) {
   background-color: rgba(248, 248, 248, 0.897);
   border-left: thick solid $bordercolor;
   letter-spacing: 0.1rem;
@@ -53,12 +57,12 @@ span.title {
 
 .knowledges{
   .card-header{
-    @include ywt-card-header()
+    @include ywt-card-header($third-color)
   }
 }
 
 .todos{
   .card-header{
-    @include ywt-card-header()
+    @include ywt-card-header($fourth-color)
   }
 }
