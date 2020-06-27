@@ -17,16 +17,12 @@ span.title {
   font-size: 1.2rem;
 }
 
-.card-header {
-  background-color: rgba(134, 188, 231, 0.239);
-}
-
 .card-body {
   background-color: rgba(248, 248, 248, 0.897);
 }
 
 .card .dones, .knowledges, .todos{
-  box-shadow: 3px 3px 6px -2px #555,
+  box-shadow: 3px 3px 6px -2px rgb(119, 119, 119),
   3px 3px 8px rgba(255,255,255,0.8) inset;
 }
 // ywtのカード用（新デザイン）
