@@ -14,11 +14,12 @@
 }
 
 span.title {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .card-body {
   background-color: rgba(248, 248, 248, 0.897);
+  font-size: 1.1rem;
 }
 
 .card.log-card {
@@ -42,13 +43,12 @@ span.title {
   }
 
   .card-footer{
-    height: 2rem;
-    padding: 0.2rem;
+    height: 2.5rem;
     border-color: rgba(248, 248, 248, 0.897);
   }
 
-  span.worktime{
-    font-size: 0.8rem;
+  .worktime{
+    margin-right: 0.3rem;
   }
 }
 
@@ -62,4 +62,17 @@ span.title {
   .card-header{
     @include ywt-card-header($fourth-color)
   }
+  .card-body {
+    padding: 0rem
+  }
+}
+
+.when-to-do.float-right.align-text-bottom {
+  padding: 0.2rem;
+  background-color: #668ba4;
+  color: white;
+  letter-spacing: 0.1rem;
+  width: 100%;
+  text-align: center;
+  border-left: thick solid darken($fourth-color, 13%);
 }
