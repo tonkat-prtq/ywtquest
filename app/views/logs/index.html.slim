@@ -55,7 +55,7 @@ javascript:
 - @logs.each do |log|
   .container-fluid
     / Logsカードの宣言
-    .card.mt-2
+    .card.log-card.mt-2
       / Logsカードのheader, Tagとdateの表示
       .card-header(style="height: 3rem;")
         - if log.started_on == log.ended_on || log.ended_on.nil? # 開始日と終了日が同じか、ended_onに何も入力されていない場合は、一日の記録として表示する
