@@ -123,7 +123,8 @@ javascript:
                         h6.mb-0
                           a.collapse.text-body.d-block.p-3.m-n3 data-toggle="collapse" href="#todo-content-#{t.id}" role="button" aria-expanded="true" aria-controls="todo-content-#{t.id}"
                             span.title #{t.title}
-                            / span.when-to-do.float-right.align-text-bottom 期限:#{t.when_to_do}
-                            span.when-to-do.float-right.align-text-bottom = t('logs.common.todos.when_to_do', when_to_do: t.when_to_do)
+                      div*{id: "todo-content-#{t.id}", class: "collapse"} role="tabpanel" aria-labelledby="todo-heading-#{t.id}"
+                        .card-body
+                          span.when-to-do.float-right.align-text-bottom = t('logs.common.todos.when_to_do', when_to_do: t.when_to_do)
 
 .container-fluid.mt-3 = paginate @logs, params: {old_level: current_user.level}
