@@ -21,7 +21,7 @@ span.title {
   background-color: rgba(248, 248, 248, 0.897);
 }
 
-.card .dones, .knowledges, .todos{
+.card.log-card {
   box-shadow: 3px 3px 6px -2px rgb(119, 119, 119),
   3px 3px 8px rgba(255,255,255,0.8) inset;
 }
@@ -29,6 +29,7 @@ span.title {
 @mixin ywt-card-header($bordercolor: $second-color) {
   background-color: rgba(248, 248, 248, 0.897);
   border-left: thick solid $bordercolor;
+  border-bottom-color: $bordercolor;
   letter-spacing: 0.1rem;
 }
 
