@@ -107,8 +107,9 @@ javascript:
                           a.collapsed.text-body.d-block.p-3.m-n3 data-toggle="collapse" href="#knowledge-content-#{k.id}" role="button" aria-expanded="false" aria-controls="knowledge-content-#{k.id}"
                             span.title #{k.title}
                       div*{id: "knowledge-content-#{k.id}", class: "collapse"} role="tabpanel" aria-labelledby="knowledge-heading-#{k.id}"
-                        .card-body
-                          span #{k.comment}
+                        - unless k.comment == ""
+                          .card-body
+                            span #{k.comment}
             / ここからTのカラム
             .col-sm-4
               / Tの情報をtに格納
