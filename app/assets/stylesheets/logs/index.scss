@@ -55,6 +55,13 @@ span.title {
   }
 }
 
+// ywtのカードヘッダーに、開閉可能な場合つける矢印
+@mixin ywt-header-angle($anglecolor: $second-color) {
+  i.fa-chevron-down {
+    color: darken($anglecolor, 30%);
+  }
+}
+
 .dones{
   .card {
     background-color: rgba(248, 248, 248, 0.897);
@@ -78,14 +85,21 @@ span.title {
   .worktime{
     margin-right: 0.3rem;
   }
+
+  @include ywt-header-angle();
 }
 
 .knowledges{
   .card-header{
     @include ywt-card-header($third-color);
     @include ywt-link-animation($third-color);
-
   }
+
+  .card-body {
+    border-left: thick solid darken($third-color, 10%);
+  }
+
+  @include ywt-header-angle($third-color);
 }
 
 .todos{
