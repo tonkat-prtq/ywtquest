@@ -72,7 +72,7 @@ span.title {
     height: 2.5rem;
     border-top-style: none;
     border-left: thick solid darken($second-color, 20%);
-    background-color: $second-color;
+    background-color: lighten($second-color, 15%);
   }
 
   .worktime{
@@ -82,13 +82,16 @@ span.title {
 
 .knowledges{
   .card-header{
-    @include ywt-card-header($third-color)
+    @include ywt-card-header($third-color);
+    @include ywt-link-animation($third-color);
+
   }
 }
 
 .todos{
   .card-header{
-    @include ywt-card-header($fourth-color)
+    @include ywt-card-header($fourth-color);
+    @include ywt-link-animation($fourth-color);
   }
   .card-body {
     padding: 0rem
