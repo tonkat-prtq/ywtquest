@@ -86,6 +86,8 @@ javascript:
                         h6.mb-0
                           a.collapsed.text-body.d-block.p-3.m-n3 data-toggle="collapse" href="#done-content-#{d.id}" role="button" aria-expanded="false" aria-controls="done-content-#{d.id}"
                             span.title #{d.title}
+                            - unless d.comment == ""
+                              .openable.display-inline.float-right.mt-1 = content_tag(:i, "", class: "fas fa-chevron-down")
                       div*{id: "done-content-#{d.id}", class: "collapse"} role="tabpanel" aria-labelledby="done-heading-#{d.id}"
                         - unless d.comment == ""
                           .card-body
