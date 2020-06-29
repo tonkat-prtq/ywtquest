@@ -59,6 +59,8 @@ span.title {
 @mixin ywt-header-angle($anglecolor: $second-color) {
   i.fa-chevron-down {
     color: darken($anglecolor, 30%);
+    // アイコンのクラスに、transitionをつけることで、閉じる際にもアニメーションを有効化している
+    transition-duration: 0.5s;
   }
 }
 
@@ -108,7 +110,7 @@ span.title {
     @include ywt-link-animation($fourth-color);
   }
   .card-body {
-    padding: 0rem
+    padding: 0rem;
   }
 }
 
@@ -122,3 +124,8 @@ span.title {
   border-left: thick solid darken($fourth-color, 13%);
 }
 
+// 矢印のアニメーション用
+.spined-icon {
+  transform: rotate(90deg);
+  transition-duration: 0.5s;
+}
