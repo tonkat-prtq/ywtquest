@@ -132,3 +132,5 @@ javascript:
                           .when-to-do.float-right.align-text-bottom = t('logs.common.todos.when_to_do', when_to_do: t.when_to_do)
 
 .container-fluid.mt-3 = paginate @logs, params: {old_level: current_user.level}
+
+<%= javascript_include_tag 'logs/index.js' %>
