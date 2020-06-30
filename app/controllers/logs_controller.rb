@@ -14,7 +14,7 @@ class LogsController < ApplicationController
       @logs = current_user.logs.all
     end
 
-    @logs = @logs.page(params[:page]).per(PER)
+    @logs = @logs.page(params[:page]).per(PER).default_order
 
   end
 
