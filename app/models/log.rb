@@ -10,6 +10,8 @@ class Log < ApplicationRecord
   validate :ended_on_after_started_on
   validate :when_to_do_after_ended_on
 
+  scope :default_order, -> { order(created_at: :desc) } # 作成日を降順に並べるscopeの名前を変更し分かりやすく
+
   def ended_on_after_started_on
     errors.add(:ended_on, "は開始日と同じか、それ以降の日付を選択してください") if
     started_on > ended_on
