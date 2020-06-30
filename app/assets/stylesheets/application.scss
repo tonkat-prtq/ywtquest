@@ -3,10 +3,8 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "bootstrap-tagsinput";
-
-@import "logs/index.scss";
-
-@import "users/show.scss";
+@import "logs/index";
+@import "users/show";
 
 // Landing
 body {
@@ -288,23 +286,4 @@ p.profile {
 
 .back-btn {
   width: 15rem;
-}
-
-.when-to-do {
-  font-size: 0.8rem
-  
-}
-
-// logs#index
-
-span.title {
-  font-size: 1.2rem;
-}
-
-.card-header {
-  background-color: rgba(134, 188, 231, 0.239);
-}
-
-.card-body {
-  background-color: rgba(248, 248, 248, 0.897);
 }

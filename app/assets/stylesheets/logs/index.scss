@@ -13,43 +13,119 @@
   color: white;
 }
 
+span.title {
+  font-size: 1.3rem;
+}
+
+.card-body {
+  background-color: rgba(248, 248, 248, 0.897);
+  font-size: 1.1rem;
+}
+
+.card.log-card {
+  box-shadow: 3px 3px 6px -2px rgb(119, 119, 119),
+  3px 3px 8px rgba(255,255,255,0.8) inset;
+}
+// ywtのカード用（新デザイン）
+@mixin ywt-card-header($bordercolor: $second-color) {
+  background-color: rgba(248, 248, 248, 0.897);
+  border-left: thick solid $bordercolor;
+  border-bottom-color: $bordercolor;
+  letter-spacing: 0.1rem;
+}
+
+// ywtのカードヘッダー、リンクの下線をアニメーション
+@mixin ywt-link-animation($bordercolor: $second-color) {
+  a {
+    text-decoration:none;
+  }
+
+  a::after {
+    content:"";
+    width:100%;
+    height:2px;
+    display:block;
+    background-color: darken($bordercolor, 15%);
+    transition:opacity 0.8s;
+    opacity:0;
+  }
+  
+  a:hover::after {
+    opacity:0.8;
+  }
+}
+
+// ywtのカードヘッダーに、開閉可能な場合つける矢印
+@mixin ywt-header-angle($anglecolor: $second-color) {
+  i.fa-chevron-down {
+    color: darken($anglecolor, 30%);
+    // アイコンのクラスに、transitionをつけることで、閉じる際にもアニメーションを有効化している
+    transition-duration: 0.5s;
+  }
+}
+
 .dones{
+  .card {
+    background-color: rgba(248, 248, 248, 0.897);
+  }
   .card-header{
-    background-color: $spacegreen;
+    @include ywt-card-header();
+    @include ywt-link-animation();
+  }
+
+  .card-body {
+    border-left: thick solid darken($second-color, 10%);
   }
 
   .card-footer{
-    height: 1rem;
-    padding: 0.2rem;
-    border-color: white;
-    background-color: white !important;
+    height: 2.5rem;
+    border-top-style: none;
+    border-left: thick solid darken($second-color, 20%);
+    background-color: lighten($second-color, 15%);
   }
 
-  span{
-    color: white;
+  .worktime{
+    margin-right: 0.3rem;
   }
 
-  span.worktime{
-    font-size: 0.8rem;
-  }
+  @include ywt-header-angle();
 }
 
 .knowledges{
   .card-header{
-    background-color: $spaceblue;
+    @include ywt-card-header($third-color);
+    @include ywt-link-animation($third-color);
   }
 
-  span.title{
-    color: white;
+  .card-body {
+    border-left: thick solid darken($third-color, 10%);
   }
+
+  @include ywt-header-angle($third-color);
 }
 
 .todos{
   .card-header{
-    background-color: $spacered;
+    @include ywt-card-header($fourth-color);
+    @include ywt-link-animation($fourth-color);
   }
+  .card-body {
+    padding: 0rem;
+  }
+}
 
-  span{
-    color: white;
-  }
+.when-to-do.float-right.align-text-bottom {
+  padding: 0.2rem;
+  background-color: #668ba4;
+  color: white;
+  letter-spacing: 0.1rem;
+  width: 100%;
+  text-align: center;
+  border-left: thick solid darken($fourth-color, 13%);
+}
+
+// 矢印のアニメーション用
+.spined-icon {
+  transform: rotate(90deg);
+  transition-duration: 0.5s;
 }

@@ -3,12 +3,21 @@ $white: #FFFFFF;
 $grayishorange: #F1ECE4;
 $softorange: rgb(235, 211, 170);
 $solidorange: #EBA271;
-$spaceblue: #273668;
+$spaceblue: #4f85a6;
 $spacegreen: #276859;
 $spacered: #682736;
 $spaceyellow: #685927;
 $charmycyan: rgb(51, 176, 192);
 $mintgreen: #7FCAC3;
+
+$first-color: #feffdf;
+$second-color: #dde0ab;
+$third-color: #97cba9;
+$fourth-color: #668ba4;
+$primary-text-color: #212121;
+$secondary-text-color: #757575;
+$divider-color: #BDBDBD;
+$icon-color: #111111;
 
 $theme-colors: (
     "softcyan":      $softcyan,
@@ -21,6 +30,15 @@ $theme-colors: (
     "spacered":      $spacered,
     "spaceyellow":   $spaceyellow,
     "charmycyan":    $charmycyan,
-    "mintgreen":     $mintgreen
+    "mintgreen":     $mintgreen,
+    "first-color":   $first-color,
+    "second-color":  $second-color,
+    "third-color":   $third-color,
+    "fourth-color":  $fourth-color,
+    "primary-text":  $primary-text-color,
+    "secondary-text":$secondary-text-color,
+    "divider-text":  $divider-color,
+    "icon-color":    $icon-color
 );
 
+$enable-rounded: false;
