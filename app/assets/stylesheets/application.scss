@@ -165,13 +165,13 @@ body {
 }
 
 .dones-form .form-control{
-  border: 2px solid $spacegreen;
+  border: 2px solid $second-color;
   // フォームが入力待機状態になったときのスタイル
   // box-shadowで枠線の影の色を変えている
   &:focus{
-    border-color: $spacegreen;
+    border-color: $second-color;
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(12, 133, 32, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(125, 133, 12, 0.25);
   }
 }
 
@@ -180,15 +180,20 @@ body {
 }
 
 .knowledges-form .form-control {
-  border: 2px solid $spaceblue;
+  border: 2px solid $third-color;
+  &:focus{
+    border-color: $third-color;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(12, 161, 49, 0.342);
+  }
 }
 
 .todos-form .form-control{
-  border: 2px solid $spacered;
+  border: 2px solid $fourth-color;
   &:focus{
-    border-color: $spacered;
+    border-color: $fourth-color;
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(161, 12, 24, 0.342);
+    box-shadow: 0 0 0 0.2rem rgba(12, 77, 161, 0.342);
   }
 }
 

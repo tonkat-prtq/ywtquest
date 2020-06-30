@@ -33,7 +33,7 @@
           = f.simple_fields_for :dones, log.dones do |d|
             == render 'done_fields', f: d
           .links
-            = link_to_add_association f, :dones, partial: 'logs/done_fields', class: "btn btn-sm btn-spacegreen d-inline-block" do
+            = link_to_add_association f, :dones, partial: 'logs/done_fields', class: "btn btn-sm btn-second-color d-inline-block" do
               - content_tag(:i, "", class: "fas fa-plus")
 
       div.knowledges-form.col-md-6
@@ -41,7 +41,7 @@
           = f.simple_fields_for :knowledges, log.knowledges do |k|
             == render 'knowledge_fields', f: k
           .links
-            = link_to_add_association f, :knowledges, partial: 'logs/knowledge_fields', class: "btn btn-sm btn-spaceblue d-inline-block" do
+            = link_to_add_association f, :knowledges, partial: 'logs/knowledge_fields', class: "btn btn-sm btn-third-color d-inline-block" do
               - content_tag(:i, "", class: "fas fa-plus")
 
       div.todos-form.col-md-12.mt-3
@@ -49,7 +49,7 @@
         = f.simple_fields_for :todos, log.todos do |t|
           == render 'todo_fields', f: t
         .links
-          = link_to_add_association f, :todos, partial: 'logs/todo_fields', class: "btn btn-sm btn-spacered d-inline-block" do
+          = link_to_add_association f, :todos, partial: 'logs/todo_fields', class: "btn btn-sm btn-fourth-color d-inline-block" do
             - content_tag(:i, "", class: "fas fa-plus")
 
     = f.button :button, t('.submit'), type: 'button', onclick: 'submit();', class: 'btn btn-primary btn-block mt-5'

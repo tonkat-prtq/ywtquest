@@ -7,5 +7,5 @@
         = f.label :when_to_do
         = f.date_field :when_to_do, value: (f.object.when_to_do || Time.zone.tomorrow.strftime("%Y-%m-%d")), class: 'form-control'
         small.form-text.text-muted = t('logs.form.todos.when_to_do_hint')
-  = link_to_remove_association f, class: "btn btn-sm btn-spacered mb-1" do
+  = link_to_remove_association f, class: "btn btn-sm btn-fourth-color mb-1" do
     - content_tag(:i, "", class: "fas fa-minus")
