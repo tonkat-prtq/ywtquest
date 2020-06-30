@@ -13,7 +13,7 @@ html
     / 色の設定もここでしてる
     div.navbar.navbar-expand-md.navbar-dark
       div.navbar-brand
-        = link_to image_tag("1_Primary_logo_on_transparent_392x63.png", class: "logo-image"), root_path
+        = link_to image_tag("1_Primary_logo_on_transparent_392x63.png", class: "logo-image"), root_path, "data-turbolinks": false 
       - if user_signed_in?
         div.d-block.btn.btn-dark.navbar-btn.text-white
           = link_to "YWT一覧", root_path, class: 'text-decoration-none text-reset', "data-turbolinks": false 
