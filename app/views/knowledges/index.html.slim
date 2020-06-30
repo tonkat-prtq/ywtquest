@@ -35,10 +35,10 @@
                         h6.mb-0
                           a.collapsed.text-body.d-block.p-3.m-n3 data-toggle="collapse" href="#knowledge-content-#{k.id}" role="button" aria-expanded="true" aria-controls="knowledge-content-#{k.id}"
                             span.title #{k.title}
+                            - unless k.comment == ""
+                              .openable.display-inline.float-right.mt-1 = content_tag(:i, "", class: "fas fa-chevron-down")
                       div*{id: "knowledge-content-#{k.id}", class: "collapse show"} role="tabpanel" aria-labelledby="knowledge-heading-#{k.id}"
                         .card-body
                           span #{k.comment}
 
-
 .container-fluid.mt-3 = paginate @logs
-<%= javascript_include_tag 'logs/index.js' %>
