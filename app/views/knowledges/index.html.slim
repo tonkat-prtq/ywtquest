@@ -30,7 +30,7 @@
                 - unless k.title == "" && k.comment == ""
                   #accordion role="tablist" aria-multiselectable="true"
                     / Wのカード宣言
-                    .card.knowledges.border-spaceblue.mb-2
+                    .card.knowledges.border-third-color.mb-2
                       div*{class: "card-header", id: "knowledge-heading-#{k.id}"} role="tab" 
                         h6.mb-0
                           a.collapsed.text-body.d-block.p-3.m-n3 data-toggle="collapse" href="#knowledge-content-#{k.id}" role="button" aria-expanded="true" aria-controls="knowledge-content-#{k.id}"

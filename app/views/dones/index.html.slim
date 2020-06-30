@@ -27,7 +27,7 @@
                 - unless d.title == "" && d.comment == "" && d.worktime == 0
                   #accordion role="tablist" aria-multiselectable="true"
                     / Yのカード宣言
-                    .card.dones.border-spacegreen.mb-2
+                    .card.dones.border-second-color.mb-2
                       div*{class: "card-header", id: "done-heading-#{d.id}"} role="tab" 
                         h6.mb-0
                           a.collapsed.text-body.d-block.p-3.m-n3 data-toggle="collapse" href="#done-content-#{d.id}" role="button" aria-expanded="true" aria-controls="done-content-#{d.id}"

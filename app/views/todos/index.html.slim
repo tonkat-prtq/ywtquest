@@ -30,7 +30,7 @@
                 - unless t.title == "" && t.when_to_do == ""
                   #accordion role="tablist" aria-multiselectable="true"
                     / Tのカード宣言
-                    .card.todos.border-spacered.mb-2
+                    .card.todos.border-fourth-color.mb-2
                       div*{class: "card-header", id: "todo-heading-#{t.id}"} role="tab" 
                         h6.mb-0
                           a.collapse.text-body.d-block.p-3.m-n3 data-toggle="collapse" href="#todo-content-#{t.id}" role="button" aria-expanded="true" aria-controls="todo-content-#{t.id}"
