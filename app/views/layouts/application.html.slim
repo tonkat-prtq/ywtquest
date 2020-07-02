@@ -15,13 +15,13 @@ html
       div.navbar-brand
         = link_to image_tag("1_Primary_logo_on_transparent_392x63.png", class: "logo-image"), root_path, "data-turbolinks": false 
       - if user_signed_in?
-        div.d-block.btn.btn-dark.navbar-btn.text-white
+        div.d-block.btn.btn-mintgreen.navbar-btn.text-white.rounded
           = link_to "YWT一覧", root_path, class: 'text-decoration-none text-reset', "data-turbolinks": false 
-        div.d-block.btn.btn-mintgreen.mr-auto.navbar-btn.ml-5.ywt-create-btn.text-white
+        div.d-block.btn.btn-mintgreen.mr-auto.navbar-btn.ml-5.ywt-create-btn.text-white.rounded
           = link_to "YWT作成", new_log_path, class: 'text-decoration-none text-reset', "data-turbolinks": false 
-        div.d-block.btn.btn-dark.navbar-btn.mr-5
+        div.d-block.btn.btn-solidorange.navbar-btn.mr-5.text-white.rounded
           = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'text-reset text-decoration-none d-block'
-        div.d-block.btn.btn-dark.navbar-btn.mr-5
+        div.d-block.btn.btn-solidorange.navbar-btn.mr-5.text-white.rounded
           = link_to "マイページ", user_path(current_user.id), class: 'text-reset text-decoration-none'
       - else
         .mr-auto
