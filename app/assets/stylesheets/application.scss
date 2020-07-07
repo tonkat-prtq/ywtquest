@@ -5,10 +5,12 @@
 @import "bootstrap-tagsinput";
 @import "logs/index";
 @import "users/show";
+@import "layouts/application";
+@import "logs/top_buttons";
 
 // Landing
 body {
-  background-color: whitesmoke
+  background-color: whitesmoke;
 }
 
 .top-content {
@@ -117,31 +119,6 @@ body {
   font-weight: lighter;
 }
 
-
-// .navbar {
-//   padding-top: 0rem;
-//   padding-bottom: 0rem;
-//   // margin-bottom: 1rem;
-// }
-
-// .navbar-btn {
-//   border-radius: 0rem;
-// }
-
-// .ywt-create-btn {
-//   padding-top: 11px;
-//   padding-bottom: 11px;
-//   border-bottom-width: 0px;
-//   border-top-width: 0px;
-// }
-
-// .navbar-brand {
-//   padding-top: 9px;
-//   padding-bottom: 9px;
-//   border-bottom-width: 0px;
-//   border-top-width: 0px;
-// }
-
 // logs#form
 
 .log-started-on, .log-ended-on{
@@ -234,7 +211,7 @@ p.profile {
 }
 
 .jumbotron {
-  background-color: rgba(102, 194, 194, 0.411);
+  background-color: $mintgreen;
   font-weight: lighter;
   padding: 2rem 1rem 1rem 1rem; 
   margin-bottom: 1rem;
@@ -246,7 +223,7 @@ p.profile {
     font-size: 1.5rem;
   }
   .progress{
-    // background-color: white;
+    background-color: whitesmoke;
     .reqexp{
       color: rgb(1, 21, 31);
     }
@@ -259,7 +236,7 @@ p.profile {
   }
 
   .profile {
-    background-color: white;
+    background-color: whitesmoke;
     .profile-text{
       font-size: 1rem;
       font-weight: lighter;
